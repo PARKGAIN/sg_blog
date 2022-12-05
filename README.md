@@ -27,4 +27,5 @@
 
 
 ### 📔 Demo
-<img src="https://user-images.githubusercontent.com/84880886/205659315-9b1f0ae1-2387-4354-8991-bbc7e6b5a979.png" width="500px"/>
+<img src="https://user-images.githubusercontent.com/84880886/205682962-058295d1-02b6-4b13-be07-3ff20414c47e.png
+" width="500px"/>
