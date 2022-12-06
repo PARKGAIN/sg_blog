@@ -25,8 +25,9 @@
 #### IDE
 - Intellij
 
-#### Architecture
+### 📔 Architecture
 
+![image](https://user-images.githubusercontent.com/84880886/205863731-cab3f6b7-e29f-43af-91bf-fd688401eae9.png)
 
 
 ### 📔 Demo
