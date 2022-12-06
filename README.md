@@ -20,11 +20,13 @@
 - JAVA
 - Spring
 - MySQL
-- node.js
-- mongodb
+
 
 #### IDE
 - Intellij
+
+#### Architecture
+
 
 
 ### 📔 Demo
