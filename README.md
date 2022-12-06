@@ -18,7 +18,7 @@
 
 #### back
 - JAVA
-- Spring
+- Spring boot
 - MySQL
 
 
