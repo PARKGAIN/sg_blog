@@ -21,6 +21,8 @@
 - JAVA
 - Spring
 - MySQL
+- node.js
+- mongodb
 
 #### IDE
 - Intellij
