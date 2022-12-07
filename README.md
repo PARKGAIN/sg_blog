@@ -17,13 +17,12 @@
 - React
 
 #### back
-- JAVA
-- Spring boot
-- MySQL
+- node.js
+- mongodb
 
 
 #### 개발환경
-
+- VScode
 
 ### 📔 시스템 구조
 
