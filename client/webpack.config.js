@@ -1,67 +1,61 @@
-const webpack = require('webpack');
-const path = require('path');
+// Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-module.exports = {
-    entry: './src/index.js',
-    resolve: { extensions: ['.js', '.jsx', '.css'] },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
-    },
-    module: {
-        rules: [{
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
-            },
-            {
-                test: /\.scss$/,
-                use: [{
-                        loader: 'style-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[local]'
-                            },
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            includePaths: [`${__dirname}/src/scss`],
-                            data: `@import 'variables';`
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(svg|jpg|png)$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 25000
-                    }
-                }
-            }
-        ]
-    },
-    Plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            template: './public/index.html'
-        })
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+
+const isProduction = process.env.NODE_ENV == "production";
+
+const stylesHandler = MiniCssExtractPlugin.loader;
+
+const config = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+  },
+  devServer: {
+    open: true,
+    host: "localhost",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "index.html",
+    }),
+
+    new MiniCssExtractPlugin(),
+
+    // Add your plugins here
+    // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/i,
+        loader: "babel-loader",
+      },
+      {
+        test: /\.css$/i,
+        use: [stylesHandler, "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: "asset",
+      },
+
+      // Add your rules for custom modules here
+      // Learn more about loaders from https://webpack.js.org/loaders/
     ],
-    devServer: {
-        host: 'localhost',
-        port: 3000,
-        hot: true,
-        overlay: true,
-        open: true
-    },
-}
+  },
+};
+
+module.exports = () => {
+  if (isProduction) {
+    config.mode = "production";
+
+    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
+  } else {
+    config.mode = "development";
+  }
+  return config;
+};
