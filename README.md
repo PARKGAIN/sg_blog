@@ -18,15 +18,16 @@
 
 #### back
 - node.js
-- mongodb
+- MySQL
 
 
 #### 개발환경
 - VScode
 
 ### 📔 시스템 구조
+![blog drawio](https://user-images.githubusercontent.com/84880886/207066961-8c5a736c-e490-4788-8100-be6d103dad00.png)
 
-![blog](https://user-images.githubusercontent.com/84880886/206384734-22dc7a51-0b57-4406-bbb6-4ebfa327e24c.jpg)
+
 
 
 ### 📔 Demo
