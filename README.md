@@ -32,3 +32,5 @@
 
 ### 📔 Demo
 <img src="https://user-images.githubusercontent.com/84880886/205682962-058295d1-02b6-4b13-be07-3ff20414c47e.png" width="500px"/>
+
+### 프로젝트 진행 중 이슈
