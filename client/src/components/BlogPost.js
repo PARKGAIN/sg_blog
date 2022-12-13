@@ -6,6 +6,7 @@ function BlogPost() {
     <>
       <div className="font">Nopainogaini</div>
       <FontAwesomeIcon icon={faMoon} />
+      <h3>Dark Mode</h3>
     </>
   );
 }
