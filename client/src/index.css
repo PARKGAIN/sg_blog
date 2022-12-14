@@ -4,3 +4,21 @@
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
 }
+.flex {
+  display: flex;
+}
+.mr-800 {
+  margin-right: 800px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.write_btn {
+  border: none;
+  background-color: #4aa8d8;
+  cursor: pointer;
+  padding: 10px 30px;
+  color: white;
+  margin: 0px auto;
+  border-radius: 5px;
+}
