@@ -22,3 +22,18 @@
   margin: 0px auto;
   border-radius: 5px;
 }
+.pt-5rem {
+  padding-top: 5rem;
+}
+.pb-5rem {
+  padding-bottom: 5rem;
+}
+.title_input {
+  font-size: 3rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-bottom: 2rem;
+  width: 100%;
+}
