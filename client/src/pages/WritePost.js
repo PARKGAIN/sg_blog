@@ -5,7 +5,7 @@ function WritePost() {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
 
-  function sendData() {
+  function sendposts() {
     axios
       .post("http://localhost:3000/posts/write", {
         title: title,
@@ -18,10 +18,13 @@ function WritePost() {
         console.log(error);
       });
   }
+  useEffect(() => {
+    nullCheck;
+  }, []);
 
   const nullCheck = () => {
     if (JSON.stringify(title, undefined) != null) {
-      sendData();
+      sendposts();
     } else {
       alert("제목을 입력해주세요");
     }
