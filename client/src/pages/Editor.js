@@ -5,6 +5,7 @@ import Btn from "../components/Btn";
 function Editor() {
   const [value, setValue] = useState("");
   console.log("render");
+  const saveText = "글 저장하기";
   return (
     <>
       <div className="pt-5rem pb-5rem">
@@ -16,7 +17,7 @@ function Editor() {
           className="height-400px"
         />
       </div>
-      <Btn />
+      <Btn text={saveText} />
     </>
   );
 }

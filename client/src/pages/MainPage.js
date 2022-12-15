@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import Btn from "../components/Btn";
 import BlogPost from "../components/BlogPost";
+import TotalPost from "../components/TotalPost";
 function MainPage() {
+  const writeText = "글 작성하기";
   return (
     <div className="center">
       <div className="flex">
@@ -14,8 +16,9 @@ function MainPage() {
           <h6 style={{ lineHeight: "46px" }}>Dark Mode</h6>
         </div>
       </div>
+      <TotalPost />
       <BlogPost />
-      <Btn />
+      <Btn text={writeText} />
     </div>
   );
 }

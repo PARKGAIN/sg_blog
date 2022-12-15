@@ -1,0 +1,9 @@
+.write_btn {
+  border: none;
+  color: white;
+  background-color: #0d6efd;
+  cursor: pointer;
+  padding: 10px 30px;
+  margin: 0px auto;
+  border-radius: 5px;
+}
