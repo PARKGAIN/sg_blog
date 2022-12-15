@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Btn from "../components/Btn";
+import CancelBtn from "../components/CancelBtn";
 function Editor() {
   const [value, setValue] = useState("");
   console.log("render");
@@ -18,6 +19,7 @@ function Editor() {
         />
       </div>
       <Btn text={saveText} />
+      <CancelBtn>취소</CancelBtn>
     </>
   );
 }

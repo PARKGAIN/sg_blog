@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Open+Sans:wght@800&display=swap");
-
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
 .font {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
@@ -50,4 +54,48 @@ a:visited {
 a:hover {
   color: white;
   text-decoration: none;
+}
+.login__wrap {
+  position: absolute;
+  border: 1px solid rgb(236, 238, 242);
+  border-radius: 4px;
+  width: 460px;
+  height: 360px;
+  padding: 20px 40px;
+  left: 50%;
+  top: 50%;
+  margin: -180px 0px 0px -230px;
+}
+.button__stylebutton {
+  width: 360px;
+  cursor: pointer;
+  background-color: rgb(26, 124, 255);
+  border-radius: 6px;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 18px;
+  display: table;
+  margin: auto;
+}
+.login__input__id {
+  width: 365px;
+  height: 45px;
+  font-size: 18px;
+  padding: 6px 0px 6px 6px;
+  display: block;
+}
+.login__input__pw {
+  width: 365px;
+  height: 45px;
+  font-size: 18px;
+  padding: 6px 0px 6px 6px;
+  display: block;
+}
+.login__wrap_find_id_join {
+  display: flex;
+  justify-content: space-between;
+}
+.cursor-pointer {
+  cursor: pointer;
 }

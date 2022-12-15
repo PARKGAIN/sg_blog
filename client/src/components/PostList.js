@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-function BlogPost() {
+function PostList() {
   return (
     <>
       <Card style={{ width: "18rem" }}>
@@ -19,4 +19,4 @@ function BlogPost() {
   );
 }
 
-export default BlogPost;
+export default PostList;

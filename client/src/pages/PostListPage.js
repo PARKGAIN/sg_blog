@@ -49,7 +49,7 @@ const PostItem = () => {
     </PostItemBlock>
   );
 };
-function ControlPosts() {
+function PostListPage() {
   const writeText = "글 작성하기";
   return (
     <div>
@@ -68,4 +68,4 @@ function ControlPosts() {
   );
 }
 
-export default ControlPosts;
+export default PostListPage;
