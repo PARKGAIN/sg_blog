@@ -16,3 +16,5 @@ CREATE TABLE reply(
 	created_at datetime not null default now(),
 	primary key(reply_no)
 )
+
+ALTER TABLE `post` DROP `name`;
