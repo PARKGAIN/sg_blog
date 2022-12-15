@@ -7,7 +7,7 @@
 
 //   function sendposts() {
 //     axios
-//       .post("http://localhost:3000/posts/write", {
+//       .post("/posts/write", {
 //         title: title,
 //         content: content,
 //       })
