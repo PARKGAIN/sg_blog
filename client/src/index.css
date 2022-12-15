@@ -13,21 +13,26 @@
 .ml-10 {
   margin-left: 10px;
 }
-.write_btn {
-  border: none;
-  background-color: #4aa8d8;
-  cursor: pointer;
-  padding: 10px 30px;
-  color: white;
-  margin: 0px auto;
-  border-radius: 5px;
-}
 .pt-5rem {
   padding-top: 5rem;
 }
 .pb-5rem {
   padding-bottom: 5rem;
 }
+.height-400px {
+  height: 400px;
+}
+.write_btn {
+  border: none;
+  background-color: #0d6efd;
+  cursor: pointer;
+  padding: 10px 30px;
+  color: white;
+  margin: 0px auto;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 .title_input {
   font-size: 3rem;
   outline: none;
@@ -36,4 +41,11 @@
   border-bottom: 1px solid gray;
   margin-bottom: 2rem;
   width: 100%;
+}
+.center {
+  margin: auto;
+}
+.darkmode-border {
+  border: 1px solid black;
+  border-radius: 30px;
 }
