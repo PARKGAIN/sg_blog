@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Btn from "../components/Btn";
 import CancelBtn from "../components/CancelBtn";
+import { Link } from "react-router-dom";
 function Editor() {
   const [value, setValue] = useState("");
   console.log("render");
@@ -18,8 +19,12 @@ function Editor() {
           className="height-400px"
         />
       </div>
-      <Btn text={saveText} />
-      <CancelBtn>취소</CancelBtn>
+      <div className="flex">
+        <Btn text={saveText} />
+        <CancelBtn>
+          <Link to="/">취소</Link>
+        </CancelBtn>
+      </div>
     </>
   );
 }

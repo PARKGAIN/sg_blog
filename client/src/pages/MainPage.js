@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import Btn from "../components/Btn";
 import TotalPost from "../components/TotalPost";
-import { Link } from "react-router-dom";
 import PostList from "../components/PostList";
 function MainPage() {
   const writeText = "글 작성하기";
@@ -20,9 +19,6 @@ function MainPage() {
       <TotalPost />
       <PostList />
       <Btn text={writeText} />
-      <button>
-        <Link to="/manage/posts">글 관리 페이지 가기</Link>
-      </button>
     </div>
   );
 }
