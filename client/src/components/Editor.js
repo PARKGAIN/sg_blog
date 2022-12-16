@@ -1,8 +1,8 @@
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import React from "react";
+import React, { useMemo } from "react";
 
-const modules = {
+const modules = useMemo(() => ({
   toolbar: {
     container: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -57,16 +57,18 @@ const modules = {
       ["clean"],
     ],
   },
-};
-
-function Editor() {
+}));
+function Editor(props) {
+  const { value, onChange } = props;
   return (
     <div>
       <ReactQuill
         theme="snow"
         modules={modules}
-        value={this.state.editorHtml}
-        onChange={this.handleChange}
+        value={value || ""}
+        onChange={(content, delta, source, editor) =>
+          onChange(editor.getText())
+        }
         className="height-500"
         placeholder="내용을 입력하세요..."
       />
