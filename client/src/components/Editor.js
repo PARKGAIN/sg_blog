@@ -1,4 +1,4 @@
-import ReactQuill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import React from "react";
 
@@ -60,15 +60,13 @@ const modules = {
 };
 
 function Editor() {
-  function handleChange(value) {
-    console.log(value);
-  }
   return (
     <div>
       <ReactQuill
         theme="snow"
-        onChange={(e) => handleChange(e)}
         modules={modules}
+        value={this.state.editorHtml}
+        onChange={this.handleChange}
         className="height-500"
         placeholder="내용을 입력하세요..."
       />
