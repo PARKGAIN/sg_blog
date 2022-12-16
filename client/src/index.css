@@ -17,14 +17,20 @@
 .ml-10 {
   margin-left: 10px;
 }
+.ml-40 {
+  margin-left: 40px;
+}
+.mr-40 {
+  margin-right: 40px;
+}
 .pt-5rem {
   padding-top: 5rem;
 }
 .pb-5rem {
   padding-bottom: 5rem;
 }
-.height-400px {
-  height: 400px;
+.height-500 {
+  height: 500px;
 }
 
 .title_input {

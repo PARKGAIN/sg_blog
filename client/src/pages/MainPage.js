@@ -4,6 +4,7 @@ import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import Btn from "../components/Btn";
 import TotalPost from "../components/TotalPost";
 import PostList from "../components/PostList";
+import { Link } from "react-router-dom";
 function MainPage() {
   const writeText = "글 작성하기";
   return (
@@ -19,6 +20,9 @@ function MainPage() {
       <TotalPost />
       <PostList />
       <Btn text={writeText} />
+      <button>
+        <Link to="/manage/posts">야발</Link>
+      </button>
     </div>
   );
 }

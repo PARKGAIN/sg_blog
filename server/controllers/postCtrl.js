@@ -4,7 +4,7 @@ const postCtrl = {
   getPosts: async (req, res) => {
     connection.query("select *  from post", (error, rows) => {
       if (error) throw error;
-      res.json({ key: "value" });
+      res.send(rows);
     });
   },
 
