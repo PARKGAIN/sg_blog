@@ -21,7 +21,7 @@ function MainPage() {
       <PostList />
       <Btn text={writeText} />
       <button>
-        <Link to="/manage/posts">야발</Link>
+        <Link to="/posts/manage/posts">야발</Link>
       </button>
     </div>
   );

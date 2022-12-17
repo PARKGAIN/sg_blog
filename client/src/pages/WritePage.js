@@ -4,34 +4,32 @@ import Btn from "../components/Btn";
 import CancelBtn from "../components/CancelBtn";
 import { Link } from "react-router-dom";
 import Editor from "../components/Editor";
+import axios from "axios";
 function WritePage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
-  // useEffect(() => {
-  //   return () => {
-  //     handleContent;
-  //   };
-  // }, []);
+
   console.log("render");
 
-  // const postPosts = () => {
-  //   axios
-  //     .post("/posts/write", {
-  //       title: title,
-  //       content: content,
-  //     })
-  //     .then((res) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  function sendPosts() {
+    const baseUrl = "http://localhost:3000";
+    axios
+      .post(baseUrl + "/posts/write", {
+        title: title,
+        content: content.current,
+      })
+      .then((res) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   const saveText = "글 저장하기";
   const handleContent = (value) => {
-    console.log(value);
     content.current = value;
+    console.log(content.current);
   };
   return (
     <div className="ml-40 mr-40">
@@ -47,7 +45,9 @@ function WritePage() {
         <Editor value={content} onChange={handleContent} />
       </div>
       <div className="flex">
-        <Btn text={saveText} />
+        <div onClick={sendPosts}>
+          <Btn text={saveText} />
+        </div>
         <CancelBtn className="pb-5rem">
           <Link to="/">취소</Link>
         </CancelBtn>

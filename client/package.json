@@ -64,5 +64,5 @@
     "webpack-dev-server": "^4.11.1",
     "workbox-webpack-plugin": "^6.5.4"
   },
-  "proxy": "http://localhost:3000/"
+  "proxy": "http://localhost:3000"
 }
