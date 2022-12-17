@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const GetPosts = () => {
+const getPosts = () => {
   axios
     .get("/posts")
     .then((res) => {
@@ -11,7 +11,7 @@ const GetPosts = () => {
     });
 };
 
-const PutPosts = () => {
+const updatePosts = () => {
   axios
     .put("/posts/update", {
       id: id,
@@ -26,7 +26,7 @@ const PutPosts = () => {
     });
 };
 
-const DeletePosts = () => {
+const deletePosts = () => {
   axios
     .delete(`/posts/delete/${PostId}`)
     .then((res) => {

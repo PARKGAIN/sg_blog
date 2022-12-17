@@ -1,4 +1,4 @@
-import React, { useEffect, memo } from "react";
+import React, { useEffect, memo, useMemo } from "react";
 import { useState, useRef } from "react";
 import Btn from "../components/Btn";
 import CancelBtn from "../components/CancelBtn";
@@ -6,10 +6,15 @@ import { Link } from "react-router-dom";
 import Editor from "../components/Editor";
 function WritePage() {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const content = useRef("");
+  // useEffect(() => {
+  //   return () => {
+  //     handleContent;
+  //   };
+  // }, []);
   console.log("render");
 
-  // const PostPosts = () => {
+  // const postPosts = () => {
   //   axios
   //     .post("/posts/write", {
   //       title: title,
@@ -26,7 +31,7 @@ function WritePage() {
   const saveText = "글 저장하기";
   const handleContent = (value) => {
     console.log(value);
-    setContent(value);
+    content.current = value;
   };
   return (
     <div className="ml-40 mr-40">
