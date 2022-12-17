@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Btn from "../components/Btn";
+import axios from "axios";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -31,20 +32,41 @@ const PostItemBlock = styled.div`
     margin-top: 2rem;
   }
 `;
-const SubInfo = styled.div`
-  color: gray;
-`;
-// 이거 나중에 api 받아서 맵 함수로 바꿔야댐
+
 const PostItem = () => {
+  const [postList, setPostList] = useState("");
+
+  useEffect(() => {
+    const baseUrl = "http://localhost:3000";
+    const getPosts = async () => {
+      await axios
+        .get(baseUrl + "/posts/manage")
+        .then((res) => {
+          let copy = [...postList];
+          let festchedPosts = copy.concat(res.data);
+          setPostList(festchedPosts);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    getPosts();
+  }, []);
+  console.log(postList);
+
   return (
     <PostItemBlock>
-      <div className="flex">
-        <h2>제목</h2>
-        <SubInfo>
-          <span>글쓴날</span>
-        </SubInfo>
-        <button>글 수정하기</button>
-        <button>글 삭제하기</button>
+      <div>
+        {Object.keys(postList).map((unq) => {
+          return (
+            <div key={unq} className="flex">
+              <div>{postList[unq].title}</div>
+              <div>{postList[unq].created_at}</div>
+              <button>글 수정하기</button>
+              <button>글 삭제하기</button>
+            </div>
+          );
+        })}
       </div>
     </PostItemBlock>
   );
@@ -59,8 +81,6 @@ function PostListPage() {
           <Btn text={writeText} />
         </WritePostButtonWrapper>
         <div>
-          <PostItem />
-          <PostItem />
           <PostItem />
         </div>
       </PostListBlock>

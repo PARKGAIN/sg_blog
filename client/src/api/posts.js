@@ -1,16 +1,5 @@
 import axios from "axios";
 
-const getPosts = () => {
-  axios
-    .get("/posts")
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
 const updatePosts = () => {
   axios
     .put("/posts/update", {

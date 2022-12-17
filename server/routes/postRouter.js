@@ -3,7 +3,7 @@ const connection = require("../dbConfig");
 const router = require("express").Router();
 
 //메인에서 조회
-router.get("/", async (req, res) => {
+router.get("/manage", async (req, res) => {
   connection.query("select *  from post", (error, rows) => {
     if (error) throw error;
     res.send(rows);
