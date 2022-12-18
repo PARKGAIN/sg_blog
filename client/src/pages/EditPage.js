@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Editor from "../components/Editor";
 import { Link, useParams } from "react-router-dom";
@@ -9,17 +9,20 @@ function EditPage() {
   const [post, setPost] = useState("");
   const { unq } = useParams();
   const baseUrl = "http://localhost:3000";
-  const getPost = async () => {
-    await axios
-      .get(baseUrl + `/posts/manage/${unq}`)
-      .then((res) => {
-        const fetchedPost = res.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  getPost();
+  useEffect(() => {
+    (async () => {
+      await axios
+        .get(baseUrl + `/posts/manage/${unq}`)
+        .then((res) => {
+          console.log("아 제발");
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })();
+  }, []);
+
   const editText = "글 수정하기";
   console.log(post);
 
