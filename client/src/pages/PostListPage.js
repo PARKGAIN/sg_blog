@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Btn from "../components/Btn";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 const PostListBlock = styled.div`
   margin-top: 3rem;
 `;
@@ -52,18 +52,21 @@ const PostItem = () => {
     };
     getPosts();
   }, []);
-  console.log(postList);
 
   return (
     <PostItemBlock>
       <div>
         {Object.keys(postList).map((unq) => {
+          console.log(postList[unq].unq);
+          const id = postList[unq].unq;
           return (
-            <div key={unq} className="flex">
+            <div key={id} className="flex">
               <div>{postList[unq].title}</div>
               <div>{postList[unq].created_at}</div>
               <button>글 수정하기</button>
-              <button>글 삭제하기</button>
+              <button>
+                <Link to={`/posts/delete/${id}`}>글 삭제하기</Link>
+              </button>
             </div>
           );
         })}

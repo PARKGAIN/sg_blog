@@ -1,7 +1,10 @@
-GET http://localhost:3000/posts
+GET http://localhost:3000/posts/manage
 
 ###
 
-###
 
 POST http://localhost:3000/posts/write
+
+###
+
+DELETE  http://localhost:3000/posts/delete/2

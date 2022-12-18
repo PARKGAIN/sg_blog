@@ -13,7 +13,7 @@ function MainPage() {
         <div className="font mr-800 ml-10">Nopainogaini</div>
         {/* 다크모드는 쿠키에 저장 */}
         <div className="darkmode-border flex">
-          <FontAwesomeIcon icon={faMoon} />
+          <FontAwesomeIcon icon={faMoon} className="mt-13 mr-10" />
           <h6 style={{ lineHeight: "46px" }}>Dark Mode</h6>
         </div>
       </div>

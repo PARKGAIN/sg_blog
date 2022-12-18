@@ -14,14 +14,3 @@ const updatePosts = () => {
       console.log(error);
     });
 };
-
-const deletePosts = () => {
-  axios
-    .delete(`/posts/delete/${PostId}`)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};

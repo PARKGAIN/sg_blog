@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage";
 import PostListPage from "./pages/PostListPage";
 import PostPage from "./pages/PostPage";
 import EditPage from "./pages/EditPage";
+import DeletePost from "./components/DeletePost";
 function App() {
   return (
     <div>
@@ -15,8 +16,9 @@ function App() {
         <Route path="/posts/write" element={<WritePage />} />
         <Route path="/aaadddmin" element={<LoginPage />} />
         <Route path="/posts/manage" element={<PostListPage />} />
-        <Route path="/posts/put/:id" element={<EditPage />} />
-        <Route path="/posts/:id" element={<PostPage />} />
+        <Route path="/posts/update/:unq" element={<EditPage />} />
+        <Route path="/posts/:unq" element={<PostPage />} />
+        <Route path="/posts/delete/:unq" element={<DeletePost />} />
       </Routes>
     </div>
   );
