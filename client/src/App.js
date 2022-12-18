@@ -16,7 +16,7 @@ function App() {
         <Route path="/posts/write" element={<WritePage />} />
         <Route path="/aaadddmin" element={<LoginPage />} />
         <Route path="/posts/manage" element={<PostListPage />} />
-        <Route path="/posts/update/:unq" element={<EditPage />} />
+        <Route path="/posts/manage/:unq" element={<EditPage />} />
         <Route path="/posts/:unq" element={<PostPage />} />
         <Route path="/posts/delete/:unq" element={<DeletePost />} />
       </Routes>

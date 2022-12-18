@@ -63,7 +63,9 @@ const PostItem = () => {
             <div key={id} className="flex">
               <div>{postList[unq].title}</div>
               <div>{postList[unq].created_at}</div>
-              <button>글 수정하기</button>
+              <button>
+                <Link to={`${id}`}>글 수정하기</Link>
+              </button>
               <button>
                 <Link to={`/posts/delete/${id}`}>글 삭제하기</Link>
               </button>

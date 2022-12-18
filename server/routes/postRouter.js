@@ -17,6 +17,14 @@ router.post("/write", async (req, res) => {
   });
 });
 
+router.get("/manage/:unq", async (req, res) => {
+  const id = req.params.unq;
+  connection.query(`select * from post where unq=${id}`, (error, rows) => {
+    if (error) throw error;
+    res.send(rows);
+  });
+});
+
 // router.put("/update/:unq", async (req, res) => {
 //   try{
 //  const sql = UPDATE "post" SET = WHERE

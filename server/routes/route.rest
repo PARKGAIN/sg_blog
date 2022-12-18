@@ -2,7 +2,8 @@ GET http://localhost:3000/posts/manage
 
 ###
 
-
+GET http://localhost:3000/posts/manage/6
+###
 POST http://localhost:3000/posts/write
 
 ###
