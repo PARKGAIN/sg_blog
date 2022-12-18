@@ -9,13 +9,17 @@ function EditPage() {
   const [post, setPost] = useState("");
   const { unq } = useParams();
   const baseUrl = "http://localhost:3000";
+  //IFFE(Immediately Invoked Function Expression)
   useEffect(() => {
     (async () => {
       await axios
         .get(baseUrl + `/posts/manage/${unq}`)
         .then((res) => {
-          console.log("아 제발");
           console.log(res.data);
+          const copy = [...post];
+          const fetched = res.data;
+          const newCopy = copy.concat(fetched);
+          setPost(newCopy);
         })
         .catch((error) => {
           console.log(error);
@@ -25,6 +29,7 @@ function EditPage() {
 
   const editText = "글 수정하기";
   console.log(post);
+  console.log(typeof post);
 
   return (
     <div>
