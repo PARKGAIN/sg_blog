@@ -5,7 +5,6 @@ function DeletePost() {
   const { unq } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    confirm("정말 삭제하시겠습니까?");
     const baseUrl = "http://localhost:3000";
     const deletePosts = async () => {
       await axios
@@ -22,7 +21,11 @@ function DeletePost() {
           console.log(err);
         });
     };
-    deletePosts();
+    const deleteCancel = () => {
+      alert("삭제취소");
+      navigate("/");
+    };
+    confirm("정말 삭제하시겠습니까?") ? deletePosts() : deleteCancel();
   }, []);
   return <div></div>;
 }

@@ -25,12 +25,16 @@ router.get("/manage/:unq", async (req, res) => {
   });
 });
 
-// router.put("/update/:unq", async (req, res) => {
-//   try{
-//  const sql = UPDATE "post" SET = WHERE
-//  connection.query(sql)
-//   }catch (error){}
-// });
+router.put("/update", async (req, res) => {
+  try {
+    const { title, content, unq } = req.body;
+    const sql = `UPDATE post SET title='${title}', content='${content}' where unq=${unq}`;
+    connection.query(sql);
+    res.json({ message: "updated!" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 router.delete("/delete", async (req, res) => {
   try {
