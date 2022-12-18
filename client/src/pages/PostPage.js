@@ -1,7 +1,7 @@
 import React from "react";
 
 function PostPage() {
-  return <div>PostPage</div>;
+  return <div>댓글창</div>;
 }
 
 export default PostPage;

@@ -48,8 +48,9 @@
   margin-bottom: 2rem;
   width: 100%;
 }
-.center {
+.main_page_center {
   margin: auto;
+  width: max-content;
 }
 .darkmode-border {
   border: 1px solid black;
