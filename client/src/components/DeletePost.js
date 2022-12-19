@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+
 function DeletePost() {
   const { unq } = useParams();
   const navigate = useNavigate();
+
+  const baseUrl = "http://localhost:3000";
   useEffect(() => {
-    const baseUrl = "http://localhost:3000";
-    const deletePosts = async () => {
+    const deletePosts = (async () => {
       await axios
         .delete(baseUrl + "/posts/delete", {
           params: {
@@ -15,19 +17,18 @@ function DeletePost() {
         })
         .then((res) => {
           console.log(res);
-          navigate("/");
+          navigate(-1);
         })
         .catch((err) => {
           console.log(err);
         });
-    };
-    const deleteCancel = () => {
-      alert("삭제취소");
-      navigate("/");
-    };
-    confirm("정말 삭제하시겠습니까?") ? deletePosts() : deleteCancel();
+    })();
+    deletePosts;
   }, []);
-  return <div></div>;
+
+  console.log("render");
+
+  return <></>;
 }
 
 export default DeletePost;

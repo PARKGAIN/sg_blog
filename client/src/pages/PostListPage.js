@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import styled from "styled-components";
 import Btn from "../components/Btn";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const PostListBlock = styled.div`
   margin-top: 3rem;
 `;
@@ -66,9 +68,7 @@ const PostItem = () => {
               <button>
                 <Link to={`${id}`}>글 수정하기</Link>
               </button>
-              <button className="ml-40">
-                <Link to={`/posts/delete/${id}`}>글 삭제하기</Link>
-              </button>
+              <DeleteBtn id={id} />
             </div>
           );
         })}
@@ -76,6 +76,7 @@ const PostItem = () => {
     </PostItemBlock>
   );
 };
+
 function PostListPage() {
   const writeText = "글 작성하기";
   return (
@@ -90,6 +91,35 @@ function PostListPage() {
         </div>
       </PostListBlock>
     </div>
+  );
+}
+
+function DeleteBtn({ id }) {
+  const navigate = useNavigate();
+  const submit = () => {
+    confirmAlert({
+      title: "Confirm to submit",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            alert("Click Yes"), navigate(`/posts/delete/${id}`);
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            alert("Click No"), navigate(-1);
+          },
+        },
+      ],
+    });
+  };
+  return (
+    <button className="ml-40" onClick={submit}>
+      글 삭제하기
+    </button>
   );
 }
 
