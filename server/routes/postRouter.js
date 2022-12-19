@@ -2,10 +2,13 @@ const connection = require("../dbConfig");
 const router = require("express").Router();
 
 router.get("/manage", async (req, res) => {
-  connection.query("select *  from post", (error, rows) => {
-    if (error) throw error;
-    res.send(rows);
-  });
+  connection.query(
+    "select title,content, date_format(created_at,'%y/%m/%d') as created_at,unq from post",
+    (error, rows) => {
+      if (error) throw error;
+      res.send(rows);
+    }
+  );
 });
 
 router.post("/write", async (req, res) => {

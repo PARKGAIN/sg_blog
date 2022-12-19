@@ -29,6 +29,9 @@
 .mr-40 {
   margin-right: 40px;
 }
+.mb-10 {
+  margin-bottom: 10px;
+}
 .pt-5rem {
   padding-top: 5rem;
 }
@@ -50,7 +53,13 @@
 }
 .main_page_center {
   margin: auto;
+  width: 1300px;
+}
+.postlistpage_center {
+  margin: auto;
   width: max-content;
+  padding: 10px 10px;
+  border-bottom: 1px solid #d3d3d3;
 }
 .darkmode-border {
   border: 1px solid black;
@@ -75,6 +84,7 @@ a:hover {
   color: white;
   text-decoration: none;
 }
+
 .login__wrap {
   position: absolute;
   border: 1px solid rgb(236, 238, 242);

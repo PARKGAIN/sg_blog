@@ -60,13 +60,13 @@ const PostItem = () => {
           console.log(postList[unq].unq);
           const id = postList[unq].unq;
           return (
-            <div key={id} className="flex">
-              <div>{postList[unq].title}</div>
-              <div>{postList[unq].created_at}</div>
+            <div key={id} className="flex postlistpage_center">
+              <div className="mr-40">{postList[unq].title}</div>
+              <div className="mr-40">{postList[unq].created_at}</div>
               <button>
                 <Link to={`${id}`}>글 수정하기</Link>
               </button>
-              <button>
+              <button className="ml-40">
                 <Link to={`/posts/delete/${id}`}>글 삭제하기</Link>
               </button>
             </div>
