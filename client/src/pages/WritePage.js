@@ -9,8 +9,6 @@ function WritePage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
 
-  console.log("render");
-
   function sendPosts() {
     const baseUrl = "http://localhost:3000";
     axios

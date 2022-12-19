@@ -1,5 +1,4 @@
 import React from "react";
-// import WritePost from "./pages/WritePost";
 import { Routes, Route } from "react-router-dom";
 import WritePage from "./pages/WritePage";
 import LoginPage from "./pages/LoginPage";

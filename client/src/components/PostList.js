@@ -7,16 +7,17 @@ import { Link } from "react-router-dom";
 function PostList({ posts }) {
   return (
     <Row xs={1} md={3} className="g-4">
-      {Object.keys(posts).map((e, i) => {
+      {Object.keys(posts).map((unq) => {
+        const id = posts[unq].unq;
         return (
-          <Col>
-            <Card style={{ width: "18rem" }} key={e}>
-              <Card.Img variant="top" src="holder.js/100px180" alt="사진없음" />
+          <Col key={id}>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src="" alt="사진없음" />
               <Card.Body>
-                <Card.Title>{posts[i].title}</Card.Title>
-                <Card.Text>{posts[i].content}</Card.Text>
+                <Card.Title>{posts[unq].title}</Card.Title>
+                <Card.Text>{posts[unq].content}</Card.Text>
                 <Button variant="primary">
-                  <Link to={""}>글 보러가기</Link>
+                  <Link to={`/posts/${id}`}>글 보러가기</Link>
                 </Button>
               </Card.Body>
             </Card>
