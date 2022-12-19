@@ -28,9 +28,9 @@
 ![blog drawio](https://user-images.githubusercontent.com/84880886/207066961-8c5a736c-e490-4788-8100-be6d103dad00.png)
 
 
-
+### 프로젝트 중 확인받고 싶었던 부분
+### 개발관련 과정에서 궁금했던 부분
 
 ### 📔 Demo
 <img src="https://user-images.githubusercontent.com/84880886/205682962-058295d1-02b6-4b13-be07-3ff20414c47e.png" width="500px"/>
 
-### 프로젝트 진행 중 이슈
