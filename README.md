@@ -28,9 +28,14 @@
 ![blog drawio](https://user-images.githubusercontent.com/84880886/207066961-8c5a736c-e490-4788-8100-be6d103dad00.png)
 
 
+### ⭐ 프로젝트 중 확인받고 싶었던 부분
+### ⭐ 개발관련 과정에서 궁금했던 부분
 
+       1 axios.get 으로 받아온 json array를 Obect.keys().map()으로 처리했는데 map메소드로만 처리하는 방법
+       
+       2 한 컴포넌트에서 axios.get으로 데이터 받아온 후에 그 데이터를 useState에 넣은 후 부모 자식 관계가 아닌 다른 컴포넌트에서 사용하고자 할 때 처리하는 방법 (처음에context API를 생각 but 성능이슈가 있다고 하여 검색해보니 context가 재렌더링을 일으키는 이슈가 있어서 사용하지 않음) 
+       
 
 ### 📔 Demo
 <img src="https://user-images.githubusercontent.com/84880886/205682962-058295d1-02b6-4b13-be07-3ff20414c47e.png" width="500px"/>
 
-### 프로젝트 진행 중 이슈
