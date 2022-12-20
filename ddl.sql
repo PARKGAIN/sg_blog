@@ -21,3 +21,8 @@ CREATE TABLE reply(
 )
 
 ALTER TABLE `post` DROP `name`;
+
+ALTER TABLE reply
+CHANGE reply_no `index` INT;
+ALTER TABLE reply
+CHANGE name nickname VARCHAR(20);
