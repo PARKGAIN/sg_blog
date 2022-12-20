@@ -14,6 +14,9 @@ CREATE TABLE reply(
 	comment varchar(255),
 	name varchar(20),
 	created_at datetime not null default now(),
+	password int unsigned not nll,
+	order int unsigend,
+	group_number int unsigned not null,
 	primary key(reply_no)
 )
 
