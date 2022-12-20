@@ -1,6 +1,5 @@
 import React, { useEffect, memo, useMemo } from "react";
 import { useState, useRef } from "react";
-import Btn from "../components/Btn";
 import CancelBtn from "../components/CancelBtn";
 import { Link } from "react-router-dom";
 import Editor from "../components/Editor";
@@ -44,7 +43,7 @@ function WritePage() {
       </div>
       <div className="flex">
         <div onClick={sendPosts}>
-          <Btn text={saveText} />
+          <PostWriteBtn text={saveText} />
         </div>
         <CancelBtn className="pb-5rem">
           <Link to="/">취소</Link>

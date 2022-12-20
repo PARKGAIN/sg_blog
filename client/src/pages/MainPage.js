@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Btn from "../components/Btn";
+import PostWriteBtn from "../components/PostWriteBtn";
 import TotalPost from "../components/TotalPost";
 import PostList from "../components/PostList";
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ function MainPage() {
       <Header />
       <TotalPost posts={posts} />
       <PostList posts={posts} />
-      <Btn text={writeText} />
+      <PostWriteBtn text={writeText} />
       <button>
         <Link to="/posts/manage">글 관리 사이트로 가기 </Link>
       </button>

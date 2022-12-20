@@ -8,6 +8,6 @@ const CancelBtn = styled.button`
   background-color: #d3d3d3;
 `;
 
-const CancelButton = (props) => <CancelBtn {...props} />;
+<CancelBtn />;
 
 export default CancelBtn;

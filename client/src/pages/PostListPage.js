@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import styled from "styled-components";
-import Btn from "../components/Btn";
+import PostWriteBtn from "../components/PostWriteBtn";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 const PostListBlock = styled.div`
@@ -84,7 +84,7 @@ function PostListPage() {
       {/* <h3>글관리</h3> */}
       <PostListBlock>
         <WritePostButtonWrapper>
-          <Btn text={writeText} />
+          <PostWriteBtn text={writeText} />
         </WritePostButtonWrapper>
         <div>
           <PostItem />
@@ -99,7 +99,7 @@ function DeleteBtn({ id }) {
   const submit = () => {
     confirmAlert({
       title: "Confirm to submit",
-      message: "Are you sure to do this.",
+      message: "정말 삭제하시겠습니까?",
       buttons: [
         {
           label: "Yes",
