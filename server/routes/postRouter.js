@@ -22,10 +22,13 @@ router.post("/write", async (req, res) => {
 
 router.get("/manage/:unq", async (req, res) => {
   const id = req.params.unq;
-  connection.query(`select * from post where unq=${id}`, (error, rows) => {
-    if (error) throw error;
-    res.send(rows);
-  });
+  connection.query(
+    `select title,content, date_format(created_at, '%Y/%m/%d %h:%m:%s') as created_at,unq from post where unq=${id}`,
+    (error, rows) => {
+      if (error) throw error;
+      res.send(rows);
+    }
+  );
 });
 
 router.put("/update", async (req, res) => {

@@ -4,6 +4,7 @@ import CancelBtn from "../components/CancelBtn";
 import { Link } from "react-router-dom";
 import Editor from "../components/Editor";
 import axios from "axios";
+import PostWriteBtn from "../components/PostWriteBtn";
 function WritePage() {
   const [title, setTitle] = useState("");
   const content = useRef("");

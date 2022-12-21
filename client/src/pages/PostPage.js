@@ -1,40 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
-//1. UI 만들기 2.axios로 데이터 받아와서 뿌리기 3.댓글처리 어캄
+import { useParams } from "react-router-dom";
+import Comment from "../components/Comment";
 function PostPage() {
+  const { unq } = useParams();
+  console.log(unq);
+  const [post, setPost] = useState("");
+  const baseUrl = "http://localhost:3000";
   useEffect(() => {
-    const baseUrl = "http://localhost:3000";
-    const getPost = async () => {
+    (async () => {
       await axios
-        .get(baseUrl + "/")
+        .get(baseUrl + `/posts/manage/${unq}`)
         .then((res) => {
-          // let copy = [...postList];
-          // let festchedPosts = copy.concat(res.data);
-          // setPostList(festchedPosts);
+          console.log(res.data);
+          const copy = [...post];
+          const fetched = res.data;
+          const newCopy = copy.concat(fetched);
+          setPost(newCopy);
         })
         .catch((error) => {
           console.log(error);
         });
-    };
-    // getPosts();
+    })();
   }, []);
   return (
-    <>
-      <div className="main_page_center" style={{ width: "760px" }}>
-        <Header />
-        <div>
-          <h1>제목</h1>
-          <span>created_at</span>
-        </div>
-        <hr />
-        <div>내용</div>
+    <div className="main_page_center">
+      <Header />
+      <div style={{ width: "760px" }}>
+        {Object.keys(post).map((e, i) => {
+          return (
+            <div key={e}>
+              <h1>{post[i].title}</h1>
+              <span>{post[i].created_at}</span>
+              <hr />
+              <div>{post[i].content}</div>
+            </div>
+          );
+        })}
         좋아요? <br />
         목록이동 <br />
         <hr />
-        <div>댓글창</div>
+        <Comment />
       </div>
-    </>
+    </div>
   );
 }
 

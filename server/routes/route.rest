@@ -13,3 +13,7 @@ DELETE  http://localhost:3000/posts/delete/2
 ###
 
 PUT  http://localhost:3000/posts/update
+
+###
+POST http://localhost:3000/reply/write
+

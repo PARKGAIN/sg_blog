@@ -69,7 +69,7 @@ const Editor = memo((props) => {
         modules={modules}
         value={value || ""}
         onChange={(content, delta, source, editor) =>
-          onChange(editor.getText())
+          onChange(editor.getHTML())
         }
         className="height-500"
         placeholder="내용을 입력하세요..."

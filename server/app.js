@@ -15,3 +15,4 @@ app.listen(3000, function () {
 });
 
 app.use("/posts", require("./routes/postRouter"));
+app.use("/reply", require("./routes/replyRouter"));

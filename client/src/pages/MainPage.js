@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
 
-//여기에서 데이터 받아와서 TotalPost에 props로 내려주면 될듯
 function MainPage() {
   const [posts, setPosts] = useState("");
   useEffect(() => {
@@ -30,6 +29,7 @@ function MainPage() {
   return (
     <div className="main_page_center">
       <Header />
+      <h3>D-4</h3>
       <TotalPost posts={posts} />
       <PostList posts={posts} />
       <PostWriteBtn text={writeText} />
