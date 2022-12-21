@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 const ReplyAddBtn = styled.button`
@@ -12,19 +12,18 @@ function Reply() {
   const [showReplyInput, setShowReplyInput] = useState(false);
   useEffect(() => {
     const baseUrl = "http://localhost:3000";
-    const getReply = async () => {
+    const getReply = (async () => {
       await axios
         .get(baseUrl + "/reply/get")
         .then((res) => {
-          const copy = { ...reply };
-          const fetchedPosts = copy.concat(res.data);
-          setPosts(fetchedPosts);
+          const copy = [...reply];
+          const fetchedReply = copy.concat(res.data);
+          setReply(fetchedReply);
         })
         .catch((error) => {
           console.log(error);
         });
-    };
-    getReply;
+    })();
   }, []);
 
   function showInput() {
@@ -34,12 +33,16 @@ function Reply() {
   return (
     <>
       {/* 댓글 보여주는 곳 */}
-      <div>
-        <span>작성자</span> <span>작성일자</span>
-        <p>댓글 내용</p>
-        <button>삭제</button>
-        <button onClick={showInput}>댓글</button>
-      </div>
+      {Object.keys(reply).map((e, i) => {
+        return (
+          <div key={e}>
+            <span>{reply[i].nickname}</span> <span>{reply[i].created_at}</span>
+            <p>{reply[i].comment}</p>
+            <button>삭제</button>
+            <button onClick={showInput}>댓글</button>
+          </div>
+        );
+      })}
       {showReplyInput && <ReReplyInput />}
     </>
   );
