@@ -14,7 +14,15 @@ CREATE TABLE reply(
 	comment varchar(255),
 	name varchar(20),
 	created_at datetime not null default now(),
+	password int unsigned not nll,
+	order int unsigend,
+	group_number int unsigned not null,
 	primary key(reply_no)
 )
 
 ALTER TABLE `post` DROP `name`;
+
+ALTER TABLE reply
+CHANGE reply_no `index` INT;
+ALTER TABLE reply
+CHANGE name nickname VARCHAR(20);
