@@ -14,11 +14,11 @@
 
 ### 📘 Tech stack
 #### front
-- React
+- React   
 
 #### back
-- node.js
-- MySQL
+- node.js  v16.18.1
+- MySQL    v5.7
 
 
 #### 개발환경
