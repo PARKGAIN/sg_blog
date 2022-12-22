@@ -8,8 +8,9 @@ const ReplyAddBtn = styled.button`
   border-radius: 5px;
   background-color: #d3d3d3;
 `;
-function Comment() {
+function Comment({ unq }) {
   const [inputs, setInputs] = useState({
+    unq: unq,
     nickname: "",
     password: "",
     content: "",
@@ -36,7 +37,7 @@ function Comment() {
 
   return (
     <div>
-      <Reply />
+      <Reply unq={unq} />
       {/* //댓글 입력 */}
       <div>
         <div>
@@ -69,7 +70,6 @@ function Comment() {
           value={inputs.content}
           onChange={handleInput}
         />
-
         <ReplyAddBtn onClick={sendReply}>등록</ReplyAddBtn>
       </div>
     </div>

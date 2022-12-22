@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReplyToReply from "./ReplyToReply";
 
-function Reply() {
+function Reply({ unq }) {
   const [reply, setReply] = useState("");
   const [showReplyInput, setShowReplyInput] = useState("");
   useEffect(() => {
     const baseUrl = "http://localhost:3000";
     (async () => {
       await axios
-        .get(baseUrl + "/reply/get")
+        .get(baseUrl + `/reply/get/${unq}`)
         .then((res) => {
           const copy = [...reply];
           const fetchedReply = copy.concat(res.data);

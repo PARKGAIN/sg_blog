@@ -25,6 +25,7 @@ function PostPage() {
         });
     })();
   }, []);
+
   return (
     <div className="main_page_center">
       <Header />
@@ -42,7 +43,7 @@ function PostPage() {
         좋아요? <br />
         목록이동 <br />
         <hr />
-        <Comment />
+        <Comment unq={unq} />
       </div>
     </div>
   );
