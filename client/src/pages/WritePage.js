@@ -1,14 +1,14 @@
 import React, { useEffect, memo, useMemo } from "react";
 import { useState, useRef } from "react";
 import CancelBtn from "../components/CancelBtn";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Editor from "../components/Editor";
 import axios from "axios";
 import PostWriteBtn from "../components/PostWriteBtn";
 function WritePage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
-
+  const navigate = useNavigate();
   function sendPosts() {
     const baseUrl = "http://localhost:3000";
     axios
@@ -18,6 +18,7 @@ function WritePage() {
       })
       .then((res) => {
         console.log(response);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

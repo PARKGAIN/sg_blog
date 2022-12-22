@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-import Reply from "./Reply";
 import styled from "styled-components";
+import ReplyToReply from "./ReplyToReply";
 const ReplyAddBtn = styled.button`
   padding: 10px 30px;
   border: 1px solid #eeeeee;
@@ -15,7 +15,8 @@ function Comment({ unq }) {
     password: "",
     content: "",
   });
-
+  const [reply, setReply] = useState("");
+  const [showReplyInput, setShowReplyInput] = useState("");
   const handleInput = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
@@ -32,12 +33,40 @@ function Comment({ unq }) {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    const getReply = (async () => {
+      const baseUrl = "http://localhost:3000";
+      await axios
+        .get(baseUrl + `/reply/get/${unq}`)
+        .then((res) => {
+          const copy = [...reply];
+          const fetchedReply = copy.concat(res.data);
+          setReply(fetchedReply);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })();
+  }, []);
   //비번 null이면 막아야함
   //function nullCheck(){}
-
+  function showInput() {
+    setShowReplyInput(!showReplyInput);
+  }
   return (
     <div>
-      <Reply unq={unq} />
+      {Object.keys(reply).map((e, i) => {
+        return (
+          <div key={e}>
+            <span>{reply[i].nickname}</span> <span>{reply[i].created_at}</span>
+            <p>{reply[i].comment}</p>
+            <button>삭제</button>
+            <button onClick={showInput}>댓글</button>
+            <ReplyToReply showReplyInput={showReplyInput} />
+          </div>
+        );
+      })}
       {/* //댓글 입력 */}
       <div>
         <div>
