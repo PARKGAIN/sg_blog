@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Comment from "../components/Comment";
+import parser from "html-react-parser";
 function PostPage() {
   const { unq } = useParams();
   console.log(unq);
@@ -34,7 +35,7 @@ function PostPage() {
               <h1>{post[i].title}</h1>
               <span>{post[i].created_at}</span>
               <hr />
-              <div>{post[i].content}</div>
+              <div>{parser(post[i].content)}</div>
             </div>
           );
         })}

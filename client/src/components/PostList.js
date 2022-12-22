@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import parser from "html-react-parser";
 function PostList({ posts }) {
   return (
     <Row xs={1} md={3} className="g-4">
@@ -15,7 +16,7 @@ function PostList({ posts }) {
               <Card.Img variant="top" src="" alt="사진없음" />
               <Card.Body>
                 <Card.Title>{posts[unq].title}</Card.Title>
-                <Card.Text>{posts[unq].content}</Card.Text>
+                <Card.Text>{parser(posts[unq].content)}</Card.Text>
                 <Button variant="primary">
                   <Link to={`/posts/${id}`}>글 보러가기</Link>
                 </Button>
