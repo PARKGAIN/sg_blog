@@ -16,7 +16,16 @@ function PostList({ posts }) {
               <Card.Img variant="top" src="" alt="사진없음" />
               <Card.Body>
                 <Card.Title>{posts[unq].title}</Card.Title>
-                <Card.Text>{parser(posts[unq].content)}</Card.Text>
+                <div
+                  style={{
+                    whiteSpace: "nowrap",
+                    height: "60px",
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                  }}
+                >
+                  {parser(posts[unq].content)}
+                </div>
                 <Button variant="primary">
                   <Link to={`/posts/${id}`}>글 보러가기</Link>
                 </Button>

@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+
 import axios from "axios";
-const ReplyAddBtn = styled.button`
-  padding: 10px 30px;
-  border: 1px solid #eeeeee;
-  border-radius: 5px;
-  background-color: #d3d3d3;
-`;
+import ReplyToReply from "./ReplyToReply";
+
 function Reply() {
   const [reply, setReply] = useState("");
-  const [showReplyInput, setShowReplyInput] = useState(false);
+  const [showReplyInput, setShowReplyInput] = useState("");
   useEffect(() => {
     const baseUrl = "http://localhost:3000";
-    const getReply = (async () => {
+    (async () => {
       await axios
         .get(baseUrl + "/reply/get")
         .then((res) => {
@@ -32,7 +28,7 @@ function Reply() {
 
   return (
     <>
-      {/* 댓글 보여주는 곳 */}
+      {/* 하위컴포넌트에다가 키 값으로 구별해서 아마 props쓰며는 될듯 그렇게 한 개만 열리도록 해보자 */}
       {Object.keys(reply).map((e, i) => {
         return (
           <div key={e}>
@@ -40,32 +36,11 @@ function Reply() {
             <p>{reply[i].comment}</p>
             <button>삭제</button>
             <button onClick={showInput}>댓글</button>
+            <ReplyToReply showReplyInput={showReplyInput} />
           </div>
         );
       })}
-      {showReplyInput && <ReReplyInput />}
     </>
-  );
-}
-function ReReplyInput() {
-  return (
-    <div style={{ paddingLeft: "30px" }}>
-      <div>
-        <input placeholder="닉네임" type="text" />
-        <input placeholder="비밀번호" type="password" />
-      </div>
-      <textarea
-        cols="50"
-        rows="5"
-        style={{
-          resize: "none",
-          padding: "8px",
-          maxHeight: "90px",
-        }}
-        defaultValue={"대갯"}
-      />
-      <ReplyAddBtn>등록</ReplyAddBtn>
-    </div>
   );
 }
 

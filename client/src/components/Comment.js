@@ -25,6 +25,7 @@ function Comment() {
       .post(baseUrl + "/reply/write", inputs)
       .then((res) => {
         console.log(res);
+        alert("댓글이 저장되었습니다");
       })
       .catch((error) => {
         console.log(error);

@@ -29,7 +29,7 @@ function MainPage() {
   return (
     <div className="main_page_center">
       <Header />
-      <h3>D-4</h3>
+      <h3>D-3</h3>
       <TotalPost posts={posts} />
       <PostList posts={posts} />
       <PostWriteBtn text={writeText} />

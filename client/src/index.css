@@ -14,8 +14,8 @@
 .mt-13 {
   margin-top: 13px;
 }
-.mr-750 {
-  margin-right: 750px;
+.mr-700 {
+  margin-right: 700px;
 }
 .ml-10 {
   margin-left: 10px;
@@ -53,7 +53,14 @@
 }
 .main_page_center {
   margin: auto;
-  width: 1300px;
+  width: 1200px;
+}
+.github {
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  cursor: pointer;
 }
 .postlistpage_center {
   margin: auto;
@@ -62,15 +69,18 @@
   border-bottom: 1px solid #d3d3d3;
 }
 .darkmode-border {
+  margin-top: 10px;
   border: 1px solid black;
-  padding: 5px 15px;
-  border-radius: 30px;
+  padding: 3px 15px;
+  border-radius: 60px;
   cursor: pointer;
 }
 .darkmode-border:hover {
+  margin-top: 10px;
   border: 1px solid gray;
-  border-radius: 30px;
+  border-radius: 60px;
   color: gray;
+  cursor: pointer;
 }
 a:link {
   color: white;
