@@ -45,11 +45,7 @@ function LoginPage() {
               </div>
             </div>
             <br />
-            <button
-              type="button"
-              className="button__stylebutton"
-              // onClick={postData}
-            >
+            <button type="button" className="button__stylebutton">
               로그인
             </button>
           </div>

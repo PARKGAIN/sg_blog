@@ -22,7 +22,7 @@ function Comment({ unq }) {
   };
 
   const sendReply = async () => {
-    const baseUrl = "http://localhost:3000";
+    const baseUrl = "http://localhost";
     await axios
       .post(baseUrl + "/reply/write", inputs)
       .then((res) => {
@@ -36,7 +36,7 @@ function Comment({ unq }) {
 
   useEffect(() => {
     const getReply = (async () => {
-      const baseUrl = "http://localhost:3000";
+      const baseUrl = "http://localhost";
       await axios
         .get(baseUrl + `/reply/get/${unq}`)
         .then((res) => {

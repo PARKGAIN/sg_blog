@@ -10,7 +10,7 @@ function EditPage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
   const { unq } = useParams();
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "http://localhost";
 
   const get = async () => {
     await axios

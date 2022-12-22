@@ -10,7 +10,7 @@ function WritePage() {
   const content = useRef("");
   const navigate = useNavigate();
   function sendPosts() {
-    const baseUrl = "http://localhost:3000";
+    const baseUrl = "http://localhost";
     axios
       .post(baseUrl + "/posts/write", {
         title: title,

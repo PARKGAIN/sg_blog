@@ -9,7 +9,7 @@ import Header from "../components/Header";
 function MainPage() {
   const [posts, setPosts] = useState("");
   useEffect(() => {
-    const baseUrl = "http://localhost:3000";
+    const baseUrl = "http://localhost";
     const getPosts = async () => {
       await axios
         .get(baseUrl + "/posts/manage")

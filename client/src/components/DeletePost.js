@@ -6,7 +6,7 @@ function DeletePost() {
   const { unq } = useParams();
   const navigate = useNavigate();
 
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "http://localhost";
   useEffect(() => {
     const deletePosts = (async () => {
       await axios

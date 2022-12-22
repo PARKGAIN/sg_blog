@@ -8,7 +8,7 @@ function PostPage() {
   const { unq } = useParams();
   console.log(unq);
   const [post, setPost] = useState("");
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "http://localhost";
   useEffect(() => {
     (async () => {
       await axios
