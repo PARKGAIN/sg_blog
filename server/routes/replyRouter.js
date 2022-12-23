@@ -14,11 +14,19 @@ router.post("/write", async (req, res) => {
 router.get("/get/:unq", async (req, res) => {
   const id = req.params.unq;
   connection.query(
-    `select 'index',nickname,password,comment,date_format(created_at,'%Y-%m-%d %H:%i:%s') as created_at from reply where unq=${id}`,
+    `select reply_no,comment,nickname,password,group_number,date_format(created_at,'%Y-%m-%d %H:%i:%s') as created_at from reply where unq=${id}`,
     (error, rows) => {
       if (error) throw error;
       res.send(rows);
     }
   );
+});
+
+router.delete("/delete/:index", async (req, res) => {
+  const id = req.params.index;
+  connection.query(`delete from reply where reply_no=${id}`, (error, rows) => {
+    if (error) throw error;
+    res.send(rows);
+  });
 });
 module.exports = router;

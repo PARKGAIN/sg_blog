@@ -58,7 +58,6 @@ const PostItem = () => {
     <PostItemBlock>
       <div>
         {Object.keys(postList).map((unq) => {
-          console.log(postList[unq].unq);
           const id = postList[unq].unq;
           return (
             <div key={id} className="flex postlistpage_center">

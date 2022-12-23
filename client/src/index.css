@@ -142,7 +142,7 @@ a:link {
 .cursor-pointer {
   cursor: pointer;
 }
-.re_reply-btn_cancel {
+.reply_cancel {
   border-radius: 70px;
   background-color: #d3d3d3;
   border: 1px solid #d3d3d3;

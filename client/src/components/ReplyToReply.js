@@ -26,7 +26,7 @@ function ReReplyInput() {
           padding: "8px",
           maxHeight: "90px",
         }}
-        defaultValue={"대갯"}
+        defaultValue={"답글"}
       />
       <ReplyAddBtn>등록</ReplyAddBtn>
     </div>

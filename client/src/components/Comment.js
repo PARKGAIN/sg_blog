@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import ReplyToReply from "./ReplyToReply";
+import { useNavigate } from "react-router-dom";
 const ReplyAddBtn = styled.button`
   padding: 5px 30px;
   border: 1px solid #eeeeee;
@@ -22,7 +23,7 @@ function Comment({ unq }) {
   });
   const [reply, setReply] = useState("");
   const [showReplyInput, setShowReplyInput] = useState("");
-  const [click, setClick] = useState(false);
+
   const sendReply = async () => {
     try {
       await axios.post(baseUrl + "/reply/write", inputs);
@@ -44,8 +45,21 @@ function Comment({ unq }) {
       (error) => console.log(error);
     }
   };
-  //비번 null이면 막아야함
-  //function nullCheck(){}
+  const navigate = useNavigate(-1);
+  const deleteReply = async (reply_id) => {
+    try {
+      await axios.delete(baseUrl + `/reply/delete/${reply_id}`);
+      alert("댓글이 삭제되었습니다");
+      navigate(-1);
+    } catch {
+      (error) => console.log(error);
+    }
+  };
+  const passwordCheck = (x) => {
+    const password_input = prompt("비밀번호 입력", "");
+    return password_input == x ? true : false;
+  };
+
   function showInput() {
     setShowReplyInput(!showReplyInput);
   }
@@ -55,13 +69,29 @@ function Comment({ unq }) {
   return (
     <div>
       {Object.keys(reply).map((e, i) => {
+        const reply_id = reply[i].reply_no;
+        const reply_password = reply[i].password;
         return (
-          <div key={e}>
+          <div key={reply_id}>
             <span className="mr-60">{reply[i].nickname}</span>
             <span>{reply[i].created_at}</span>
             <p>{reply[i].comment}</p>
-            <button className="re_reply-btn_cancel">삭제</button>
-            <button onClick={showInput} className="re_reply-btn_add">
+            <button
+              className="reply_cancel"
+              onClick={() =>
+                passwordCheck(reply_password)
+                  ? deleteReply(reply_id)
+                  : alert("잘못된 비밀번호입니다")
+              }
+            >
+              삭제
+            </button>
+            <button
+              onClick={() => {
+                showInput();
+              }}
+              className="re_reply-btn_add"
+            >
               댓글
             </button>
             <hr style={{ marginTop: "5px" }} />
@@ -69,7 +99,6 @@ function Comment({ unq }) {
           </div>
         );
       })}
-      {/* //댓글 입력 */}
       <div>
         <div>
           <input
@@ -101,9 +130,14 @@ function Comment({ unq }) {
           value={inputs.content}
           onChange={handleInput}
         />
-        <ReplyAddBtn onClick={sendReply}>등록</ReplyAddBtn>
+        <ReplyAddBtn
+          onClick={() =>
+            inputs.password ? sendReply() : alert("비밀번호를 입력해주세요")
+          }
+        >
+          등록
+        </ReplyAddBtn>
       </div>
-      {click}
     </div>
   );
 }
