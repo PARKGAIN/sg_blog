@@ -23,28 +23,28 @@ function PostPage() {
         console.log(error);
       };
     }
-
-    return (
-      <div className="main_page_center">
-        <Header />
-        <div style={{ width: "760px", margin: "0px auto" }}>
-          {Object.keys(post).map((e, i) => {
-            return (
-              <div key={e}>
-                <h1>{post[i].title}</h1>
-                <span>{post[i].created_at}</span>
-                <hr />
-                <div>{parser(post[i].content)}</div>
-              </div>
-            );
-          })}
-          좋아요? <br />
-          목록이동 <br />
-          <hr />
-          <Comment unq={unq} />
-        </div>
-      </div>
-    );
   };
+  return (
+    <div className="main_page_center">
+      <Header />
+      <div style={{ width: "760px", margin: "0px auto" }}>
+        {Object.keys(post).map((e, i) => {
+          return (
+            <div key={e}>
+              <h1>{post[i].title}</h1>
+              <span>{post[i].created_at}</span>
+              <hr />
+              <div>{parser(post[i].content)}</div>
+            </div>
+          );
+        })}
+        좋아요? <br />
+        목록이동 <br />
+        <hr />
+        <Comment unq={unq} />
+      </div>
+    </div>
+  );
 }
+
 export default PostPage;
