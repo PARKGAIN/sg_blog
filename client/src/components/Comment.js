@@ -3,10 +3,11 @@ import axios from "axios";
 import styled from "styled-components";
 import ReplyToReply from "./ReplyToReply";
 const ReplyAddBtn = styled.button`
-  padding: 10px 30px;
+  padding: 5px 30px;
   border: 1px solid #eeeeee;
-  border-radius: 5px;
-  background-color: #d3d3d3;
+  border-radius: 40px;
+  color: white;
+  background-color: black;
 `;
 function Comment({ unq }) {
   const [inputs, setInputs] = useState({
@@ -61,8 +62,11 @@ function Comment({ unq }) {
           <div key={e}>
             <span>{reply[i].nickname}</span> <span>{reply[i].created_at}</span>
             <p>{reply[i].comment}</p>
-            <button>삭제</button>
-            <button onClick={showInput}>댓글</button>
+            <button className="re_reply-btn_cancel">삭제</button>
+            <button onClick={showInput} className="re_reply-btn_add">
+              댓글
+            </button>
+            <hr style={{ marginTop: "5px" }} />
             <ReplyToReply showReplyInput={showReplyInput} />
           </div>
         );
@@ -88,8 +92,8 @@ function Comment({ unq }) {
           />
         </div>
         <textarea
-          cols="50"
-          rows="5"
+          cols="70"
+          rows="6"
           name="content"
           style={{
             resize: "none",

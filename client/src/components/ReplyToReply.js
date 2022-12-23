@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 const ReplyAddBtn = styled.button`
-  padding: 10px 30px;
+  padding: 5px 30px;
   border: 1px solid #eeeeee;
-  border-radius: 5px;
-  background-color: #d3d3d3;
+  border-radius: 40px;
+  color: white;
+  background-color: black;
 `;
 function ReplyToReply({ showReplyInput }) {
   return <div>{showReplyInput && <ReReplyInput />}</div>;
@@ -18,7 +19,7 @@ function ReReplyInput() {
         <input placeholder="비밀번호" type="password" />
       </div>
       <textarea
-        cols="50"
+        cols="60"
         rows="5"
         style={{
           resize: "none",

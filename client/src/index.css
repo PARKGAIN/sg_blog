@@ -73,17 +73,17 @@
   margin-top: 10px;
   border: 1px solid black;
   padding: 3px 15px;
-  border-radius: 60px;
+  border-radius: 95px;
   cursor: pointer;
 }
 .darkmode-border:hover {
   margin-top: 10px;
   border: 1px solid gray;
-  border-radius: 60px;
+  border-radius: 95px;
   color: gray;
   cursor: pointer;
 }
-a:link {
+/* a:link {
   color: white;
   text-decoration: none;
 }
@@ -94,7 +94,7 @@ a:visited {
 a:hover {
   color: white;
   text-decoration: none;
-}
+} */
 
 .login__wrap {
   position: absolute;
@@ -139,4 +139,20 @@ a:hover {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.re_reply-btn_cancel {
+  border-radius: 70px;
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+  padding: 2px 10px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.re_reply-btn_add {
+  border-radius: 70px;
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+  padding: 2px 10px;
+  cursor: pointer;
+  margin-left: 10px;
 }

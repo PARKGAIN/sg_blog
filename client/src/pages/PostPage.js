@@ -29,7 +29,7 @@ function PostPage() {
   return (
     <div className="main_page_center">
       <Header />
-      <div style={{ width: "760px" }}>
+      <div style={{ width: "760px", margin: "0px auto" }}>
         {Object.keys(post).map((e, i) => {
           return (
             <div key={e}>

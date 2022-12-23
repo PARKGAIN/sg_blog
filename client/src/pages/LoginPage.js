@@ -41,7 +41,6 @@ function LoginPage() {
               </div>
               <div className="login__wrap_find_id_join">
                 <a className="cursor-pointer">아이디,비밀번호 찾기</a>
-                <a className="cursor-pointer">회원가입</a>
               </div>
             </div>
             <br />

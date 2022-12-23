@@ -47,7 +47,7 @@ function WritePage() {
         <div onClick={sendPosts}>
           <PostWriteBtn text={saveText} />
         </div>
-        <CancelBtn className="pb-5rem">
+        <CancelBtn>
           <Link to="/">취소</Link>
         </CancelBtn>
       </div>
