@@ -10,6 +10,10 @@ const ReplyAddBtn = styled.button`
   background-color: black;
 `;
 function Comment({ unq }) {
+  const baseUrl = "http://localhost";
+  useEffect(() => {
+    getReply();
+  }, []);
   const [inputs, setInputs] = useState({
     unq: unq,
     nickname: "",
@@ -18,49 +22,43 @@ function Comment({ unq }) {
   });
   const [reply, setReply] = useState("");
   const [showReplyInput, setShowReplyInput] = useState("");
-  const handleInput = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-  };
-
+  const [click, setClick] = useState(false);
   const sendReply = async () => {
-    const baseUrl = "http://localhost";
-    await axios
-      .post(baseUrl + "/reply/write", inputs)
-      .then((res) => {
-        console.log(res);
-        alert("댓글이 저장되었습니다");
-      })
-      .catch((error) => {
+    try {
+      await axios.post(baseUrl + "/reply/write", inputs);
+      alert("댓글이 저장되었습니다");
+    } catch {
+      (error) => {
         console.log(error);
-      });
+      };
+    }
+    getReply();
   };
-
-  useEffect(() => {
-    const getReply = (async () => {
-      const baseUrl = "http://localhost";
-      await axios
-        .get(baseUrl + `/reply/get/${unq}`)
-        .then((res) => {
-          const copy = [...reply];
-          const fetchedReply = copy.concat(res.data);
-          setReply(fetchedReply);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    })();
-  }, []);
+  const getReply = async () => {
+    try {
+      const res = await axios.get(baseUrl + `/reply/get/${unq}`);
+      const copy = [...reply];
+      const fetchedReply = copy.concat(res.data);
+      setReply(fetchedReply);
+    } catch {
+      (error) => console.log(error);
+    }
+  };
   //비번 null이면 막아야함
   //function nullCheck(){}
   function showInput() {
     setShowReplyInput(!showReplyInput);
   }
+  const handleInput = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
   return (
     <div>
       {Object.keys(reply).map((e, i) => {
         return (
           <div key={e}>
-            <span>{reply[i].nickname}</span> <span>{reply[i].created_at}</span>
+            <span className="mr-60">{reply[i].nickname}</span>
+            <span>{reply[i].created_at}</span>
             <p>{reply[i].comment}</p>
             <button className="re_reply-btn_cancel">삭제</button>
             <button onClick={showInput} className="re_reply-btn_add">
@@ -75,7 +73,7 @@ function Comment({ unq }) {
       <div>
         <div>
           <input
-            style={{ width: "203.4px" }}
+            style={{ width: "277.8px" }}
             name="nickname"
             placeholder="닉네임"
             type="text"
@@ -83,7 +81,7 @@ function Comment({ unq }) {
             onChange={handleInput}
           />
           <input
-            style={{ width: "203.4px" }}
+            style={{ width: "277.8px" }}
             name="password"
             placeholder="비밀번호"
             type="password"
@@ -105,6 +103,7 @@ function Comment({ unq }) {
         />
         <ReplyAddBtn onClick={sendReply}>등록</ReplyAddBtn>
       </div>
+      {click}
     </div>
   );
 }

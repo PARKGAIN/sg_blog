@@ -37,23 +37,22 @@ const PostItemBlock = styled.div`
 
 const PostItem = () => {
   const [postList, setPostList] = useState("");
-
+  const baseUrl = "http://localhost";
   useEffect(() => {
-    const baseUrl = "http://localhost";
-    const getPosts = async () => {
-      await axios
-        .get(baseUrl + "/posts/manage")
-        .then((res) => {
-          let copy = [...postList];
-          let festchedPosts = copy.concat(res.data);
-          setPostList(festchedPosts);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
     getPosts();
   }, []);
+  const getPosts = async () => {
+    try {
+      const res = await axios.get(baseUrl + "/posts/manage");
+      const copy = [...postList];
+      const festchedPosts = copy.concat(res.data);
+      setPostList(festchedPosts);
+    } catch {
+      (error) => {
+        console.log(error);
+      };
+    }
+  };
 
   return (
     <PostItemBlock>
@@ -81,7 +80,6 @@ function PostListPage() {
   const writeText = "글 작성하기";
   return (
     <div>
-      {/* <h3>글관리</h3> */}
       <PostListBlock>
         <WritePostButtonWrapper>
           <PostWriteBtn text={writeText} />

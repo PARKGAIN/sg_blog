@@ -1,32 +1,29 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function DeletePost() {
-  const { unq } = useParams();
   const navigate = useNavigate();
-
+  const { unq } = useParams();
   const baseUrl = "http://localhost";
   useEffect(() => {
-    const deletePosts = (async () => {
-      await axios
-        .delete(baseUrl + "/posts/delete", {
-          params: {
-            unq: unq,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          navigate(-1);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    })();
-    deletePosts;
+    deletePosts();
   }, []);
 
-  console.log("render");
+  const deletePosts = async () => {
+    try {
+      await axios.delete(baseUrl + "/posts/delete", {
+        params: {
+          unq: unq,
+        },
+      });
+      navigate(-1);
+    } catch {
+      (err) => {
+        console.log(err);
+      };
+    }
+  };
 
   return <></>;
 }

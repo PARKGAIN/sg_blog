@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 function Header() {
   const goUrl = () => {
@@ -10,8 +11,11 @@ function Header() {
   return (
     <div>
       <div className="flex">
-        <div className="font mr-700 ml-10">Nopainogaini</div>
-        {/* 다크모드는 쿠키에 저장 */}
+        <div className="font mr-700 ml-10">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
+            Nopainogaini
+          </Link>
+        </div>
         <div className="darkmode-border flex">
           <FontAwesomeIcon icon={faMoon} className="mt-13 mr-10" />
           <h6 style={{ lineHeight: "46px" }}>Dark Mode</h6>

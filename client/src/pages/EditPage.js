@@ -6,44 +6,39 @@ import styles from "../Btn.module.css";
 import CancelBtn from "../components/CancelBtn";
 
 function EditPage() {
+  const { unq } = useParams();
   const [post, setPost] = useState("");
   const [title, setTitle] = useState("");
   const content = useRef("");
-  const { unq } = useParams();
+
   const baseUrl = "http://localhost";
 
-  const get = async () => {
-    await axios
-      .get(baseUrl + `/posts/manage/${unq}`)
-      .then((res) => {
-        console.log(res.data);
-        const copy = [...post];
-        const fetched = res.data;
-        const newCopy = copy.concat(fetched);
-        setPost(newCopy);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const getOnePost = async () => {
+    try {
+      const res = await axios.get(baseUrl + `/posts/manage/${unq}`);
+      const copy = [...post];
+      const fetched = res.data;
+      const newCopy = copy.concat(fetched);
+      setPost(newCopy);
+    } catch {
+      (error) => console.log(error);
+    }
   };
 
   const updatePosts = async () => {
-    await axios
-      .put(baseUrl + "/posts/update", {
+    try {
+      await axios.put(baseUrl + "/posts/update", {
         unq: unq,
         title: title,
         content: content.current,
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
       });
+    } catch {
+      (error) => console.log(error);
+    }
   };
 
   useEffect(() => {
-    get();
+    getOnePost();
   }, []);
 
   const handleContent = (value) => {

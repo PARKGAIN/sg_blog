@@ -8,28 +8,28 @@ import Header from "../components/Header";
 
 function MainPage() {
   const [posts, setPosts] = useState("");
+  const baseUrl = "http://localhost";
+
   useEffect(() => {
-    const baseUrl = "http://localhost";
-    const getPosts = async () => {
-      await axios
-        .get(baseUrl + "/posts/manage")
-        .then((res) => {
-          const copy = [...posts];
-          const fetchedPosts = copy.concat(res.data);
-          setPosts(fetchedPosts);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
     getPosts();
   }, []);
-
+  const getPosts = async () => {
+    try {
+      const res = await axios.get(baseUrl + "/posts/manage");
+      const copy = [...posts];
+      const fetchedPosts = copy.concat(res.data);
+      setPosts(fetchedPosts);
+    } catch {
+      (error) => {
+        console.log(error);
+      };
+    }
+  };
   const writeText = "글 작성하기";
   return (
     <div className="main_page_center">
       <Header />
-      <h3>D-3</h3>
+      <h3>D-2</h3>
       <TotalPost posts={posts} />
       <PostList posts={posts} />
       <PostWriteBtn text={writeText} />

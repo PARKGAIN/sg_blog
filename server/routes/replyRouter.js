@@ -14,7 +14,7 @@ router.post("/write", async (req, res) => {
 router.get("/get/:unq", async (req, res) => {
   const id = req.params.unq;
   connection.query(
-    `select nickname,password,comment,date_format(created_at,'%Y-%m-%d %H:%i:%s') as created_at from reply where unq=${id}`,
+    `select 'index',nickname,password,comment,date_format(created_at,'%Y-%m-%d %H:%i:%s') as created_at from reply where unq=${id}`,
     (error, rows) => {
       if (error) throw error;
       res.send(rows);
