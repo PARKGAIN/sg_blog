@@ -56,7 +56,6 @@
 }
 .main_page_center {
   margin: auto;
-  width: 1200px;
 }
 
 .github {
@@ -68,7 +67,6 @@
 }
 .postlistpage_center {
   margin: auto;
-  width: max-content;
   padding: 10px 10px;
   border-bottom: 1px solid #d3d3d3;
 }
@@ -158,9 +156,12 @@ a:link {
   cursor: pointer;
   margin-left: 10px;
 }
-.width_1000 {
-  width: 1000px;
+.width_934 {
+  width: 934px;
 }
 .box_shadow:hover {
   box-shadow: 0 2px 0 0 #eeeeee;
+}
+.text_center {
+  text-align: center;
 }

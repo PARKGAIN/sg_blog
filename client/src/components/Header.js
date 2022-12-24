@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faRss } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -16,6 +17,7 @@ function Header() {
             Nopainogaini
           </Link>
         </div>
+        <FontAwesomeIcon icon={faRss} />
         <div className="darkmode-border flex">
           <FontAwesomeIcon icon={faMoon} className="mt-13 mr-10" />
           <h6 style={{ lineHeight: "46px" }}>Dark Mode</h6>

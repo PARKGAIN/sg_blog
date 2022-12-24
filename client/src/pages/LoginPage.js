@@ -1,3 +1,5 @@
+import { faUserLarge } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 
 function LoginPage() {
@@ -12,6 +14,7 @@ function LoginPage() {
   useEffect(a, b, []);
   return (
     <div>
+      <FontAwesomeIcon icon={faUserLarge} />
       <div className="login__wrap">
         <h4>로그인</h4>
         <div className="login__inner">

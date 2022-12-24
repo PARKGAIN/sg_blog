@@ -27,13 +27,14 @@ function MainPage() {
     }
   };
   return (
-    <div className="main_page_center">
+    <div>
       <Header />
-      <h3>D-2</h3>
+
       <TotalPost posts={posts} />
       <PostList posts={posts} />
       <Pagination />
       <PostWriteBtn />
+
       <button>
         <Link to="/posts/manage">글 관리 사이트로 가기 </Link>
       </button>
