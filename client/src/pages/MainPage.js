@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PostWriteBtn from "../components/PostWriteBtn";
+
 import TotalPost from "../components/TotalPost";
 import PostList from "../components/PostList";
 import { Link } from "react-router-dom";
@@ -44,7 +44,7 @@ function MainPage() {
       <Header />
       <TotalPost posts={posts} />
       <PostList posts={posts} />
-      <PostWriteBtn />
+
       {pagination}
     </div>
   );
