@@ -2,7 +2,6 @@ const connection = require("../dbConfig");
 const router = require("express").Router();
 
 router.post("/write", async (req, res) => {
-  console.log(req.body);
   const { nickname, password, content, unq } = req.body;
   const sql = `insert into reply(unq,nickname,password,comment) values ('${unq}','${nickname}','${password}','${content}')`;
   connection.query(sql, (error, rows) => {

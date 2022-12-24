@@ -75,7 +75,7 @@
 .darkmode-border {
   margin-top: 10px;
   border: 1px solid black;
-  padding: 3px 15px;
+  padding: 1.5px 15px;
   border-radius: 95px;
   cursor: pointer;
 }
@@ -157,4 +157,10 @@ a:link {
   padding: 2px 10px;
   cursor: pointer;
   margin-left: 10px;
+}
+.width_1000 {
+  width: 1000px;
+}
+.box_shadow:hover {
+  box-shadow: 0 2px 0 0 #eeeeee;
 }
