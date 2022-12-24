@@ -1,4 +1,4 @@
-import ReactQuill, { Quill } from "react-quill";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import React, { memo, useMemo, useRef } from "react";
 import axios from "axios";

@@ -5,6 +5,7 @@ import PostList from "../components/PostList";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
+import Pagination from "../components/Pagination";
 
 function MainPage() {
   const [posts, setPosts] = useState("");
@@ -25,14 +26,14 @@ function MainPage() {
       };
     }
   };
-  const writeText = "글 작성하기";
   return (
     <div className="main_page_center">
       <Header />
       <h3>D-2</h3>
       <TotalPost posts={posts} />
       <PostList posts={posts} />
-      <PostWriteBtn text={writeText} />
+      <Pagination />
+      <PostWriteBtn />
       <button>
         <Link to="/posts/manage">글 관리 사이트로 가기 </Link>
       </button>

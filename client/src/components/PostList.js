@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
@@ -21,13 +21,14 @@ function PostList({ posts }) {
                     height: "110px",
                     textOverflow: "ellipsis",
                     overflow: "hidden",
+                    padding: "5px",
                   }}
                 >
                   {parser(posts[unq].content)}
                 </div>
-                <Button variant="primary">
-                  <Link to={`/posts/${id}`}>글 보러가기</Link>
-                </Button>
+                <button variant="primary">
+                  <Link to={`/posts/${id}`}>→</Link>
+                </button>
               </Card.Body>
             </Card>
           </Col>
