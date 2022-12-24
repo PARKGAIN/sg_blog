@@ -10,7 +10,7 @@ function Header() {
     window.open("https://github.com/PARKGAIN");
   };
   return (
-    <div>
+    <div style={{ margin: "auto", display: "table" }}>
       <div className="flex box_shadow">
         <div className="font mr-700 ml-10">
           <Link style={{ textDecoration: "none", color: "black" }} to="/">

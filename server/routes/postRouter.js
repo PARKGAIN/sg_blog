@@ -51,6 +51,21 @@ router.delete("/delete", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-// router.get("/", (req, res, next) =>)
+// router.get("/", async (req, res) => {
+//   const page = req.query.page;
+//   const pageSize = 6;
+//   try {
+//     let start = 0;
+//     if (page <= 0) {
+//       page = 1;
+//     } else {
+//       start = (page - 1) * pageSize;
+//     }
+//     const sql = `select * from post limit ${start},6`;
+//     connection.query(sql);
+//   } catch (error) {
+//     res.status(500);
+//   }
+// });
 
 module.exports = router;
