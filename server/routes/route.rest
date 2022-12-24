@@ -19,4 +19,4 @@ POST http://localhost:3000/reply/write
 
 ###
 
-GET http://localhost:3000/posts?page=1
+GET http://localhost:3000/posts?page=2

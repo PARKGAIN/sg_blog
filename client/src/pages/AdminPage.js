@@ -9,8 +9,8 @@ function AdminPage() {
       <AdminData />
       <button>
         <Link to="/posts/manage">글 관리 사이트로 가기 </Link>
-        <PostWriteBtn />
       </button>
+      <PostWriteBtn />
     </div>
   );
 }

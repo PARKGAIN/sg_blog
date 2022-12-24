@@ -74,10 +74,8 @@ router.get("/", async (req, res) => {
       if (endingLink < page + 4) {
         iterator -= page + 4 - numOfPages;
       }
-      res.send({ data: result, page, iterator, endingLink, numOfPages });
+      res.send({ result, page, iterator, endingLink, numOfPages });
     });
-
-    console.log(result);
   });
   // console.log(posts);
 });
