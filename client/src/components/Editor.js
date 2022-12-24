@@ -6,14 +6,12 @@ const Editor = memo((props) => {
   const { value, onChange } = props;
   const quillRef = useRef("");
   const imageHandler = () => {
-    console.log("이미지 핸들러 시작");
     const input = document.createElement("input");
     input.setAttribute("type", "file");
     input.setAttribute("accept", "image/*");
     input.click();
 
     input.addEventListener("change", async () => {
-      console.log("온체인지");
       const file = input.files[0];
       const formData = new FormData();
       formData.append("img", file);
@@ -25,7 +23,7 @@ const Editor = memo((props) => {
         const range = editor.getSelection();
         editor.insertEmbed(range.index, "image", IMG_URL);
       } catch (error) {
-        console.log("실패");
+        throw error;
       }
     });
   };
@@ -103,7 +101,7 @@ const Editor = memo((props) => {
         onChange={(content, delta, source, editor) =>
           onChange(editor.getHTML())
         }
-        className="height-500"
+        className="editor"
         placeholder="내용을 입력하세요..."
       />
     </div>

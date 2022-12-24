@@ -1,10 +1,9 @@
 import React from "react";
 import { useState, useRef } from "react";
-import CancelBtn from "../components/CancelBtn";
 import { Link, useNavigate } from "react-router-dom";
 import Editor from "../components/Editor";
 import axios from "axios";
-import PostWriteBtn from "../components/PostWriteBtn";
+
 function WritePage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
@@ -28,8 +27,9 @@ function WritePage() {
     console.log(content.current);
   };
   return (
-    <div className="ml-40 mr-40">
+    <div className="post_write_page_center">
       <div className="pt-5rem pb-5rem ">
+        <div>제목</div>
         <input
           className="title_input"
           placeholder=" 제목을 입력하세요"
@@ -38,17 +38,19 @@ function WritePage() {
             setTitle(e.target.value);
           }}
         />
+        <div>내용</div>
         <Editor value={content} onChange={handleContent} />
       </div>
-      <div className="flex">
+      <div className="flex ">
         <div onClick={sendPost}>
-          <PostWriteBtn text={saveText} />
+          <button className="post_write_btn">저장하기</button>
         </div>
-        <CancelBtn>
+        <button className="post_cancel_btn">
           <Link to="/">취소</Link>
-        </CancelBtn>
+        </button>
       </div>
     </div>
   );
 }
+
 export default WritePage;

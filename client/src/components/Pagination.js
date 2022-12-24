@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-// import "./Pagination.css";
-import Pagination from "react-js-pagination";
+import React from "react";
+import Pagination from "react-bootstrap/Pagination";
 
-const Pagination_ = () => {
-  const [page, setPage] = useState(1);
-  const handlePageChange = (page) => {
-    setPage(page);
-  };
-
-  return (
-    <Pagination
-      activePage={page}
-      itemsCountPerPage={10}
-      totalItemsCount={50}
-      pageRangeDisplayed={5}
-      prevPageText="‹"
-      nextPageText="›"
-      onChange={handlePageChange}
-    />
+let active = 2;
+let items = [];
+for (let number = 1; number <= 5; number++) {
+  items.push(
+    <Pagination.Item key={number} active={number === active}>
+      {number}
+    </Pagination.Item>
   );
-};
-export default Pagination_;
+}
+
+const pagination = (
+  <div>
+    <Pagination>{items}</Pagination>
+    <br />
+
+    <Pagination size="lg">{items}</Pagination>
+    <br />
+
+    <Pagination size="sm">{items}</Pagination>
+  </div>
+);
+
+render(pagination);

@@ -31,7 +31,10 @@ function PostList({ posts }) {
                 </div>
                 <a variant="primary">
                   <Link to={`/posts/${id}`}>
-                    <FontAwesomeIcon icon={faRightLong} />
+                    <FontAwesomeIcon
+                      icon={faRightLong}
+                      className="float_right"
+                    />
                   </Link>
                 </a>
               </Card.Body>

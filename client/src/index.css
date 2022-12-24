@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Open+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Changa+One&family=Open+Sans:wght@800&family=Poppins&display=swap");
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-.font {
+.font_sans {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
 }
@@ -14,8 +15,8 @@
 .mt-13 {
   margin-top: 13px;
 }
-.mr-700 {
-  margin-right: 700px;
+.mr-600 {
+  margin-right: 600px;
 }
 .ml-10 {
   margin-left: 10px;
@@ -46,18 +47,20 @@
 }
 
 .title_input {
-  font-size: 3rem;
+  font-size: 1.5rem;
   outline: none;
   padding-bottom: 0.5rem;
   border: none;
   border-bottom: 1px solid gray;
   margin-bottom: 2rem;
-  width: 100%;
+  width: 80%;
 }
 .main_page_center {
-  margin: auto;
+  margin: 0px auto;
 }
-
+.mt-20 {
+  margin-top: 20px;
+}
 .github {
   margin-top: 20px;
   width: 30px;
@@ -164,4 +167,44 @@ a:link {
 }
 .text_center {
   text-align: center;
+}
+.editor {
+  width: 80%;
+  margin-top: 10px;
+  height: 300px;
+}
+.post_write_page_center {
+  margin: 0 auto;
+  display: table;
+}
+.post_write_btn {
+  width: 88px;
+  height: 40px;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
+  border-radius: 30px;
+  color: white;
+}
+.post_cancel_btn {
+  width: 88px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 30px;
+  color: #0d6efd;
+}
+.margin_right_122 {
+  margin-right: 122px;
+}
+.ml-167 {
+  margin-left: 167px;
+}
+.width_height_30 {
+  width: 30px;
+  height: 30px;
+}
+.float_right {
+  float: right;
+}
+.total_post_margin {
+  margin: 5px 0px 5px 300px;
 }

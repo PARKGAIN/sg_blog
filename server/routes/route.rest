@@ -16,3 +16,7 @@ PUT  http://localhost:3000/posts/update
 
 ###
 POST http://localhost:3000/reply/write
+
+###
+
+GET http://localhost:3000/posts?page=1
