@@ -38,8 +38,7 @@ function PostPage() {
             </div>
           );
         })}
-        좋아요? <br />
-        목록이동 <br />
+
         <hr className="mt-13" />
         <h4>댓글</h4>
         <Comment unq={unq} />

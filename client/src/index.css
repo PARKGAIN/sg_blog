@@ -12,6 +12,9 @@
 .flex {
   display: flex;
 }
+.mt-100 {
+  margin-top: 100px;
+}
 .mt-13 {
   margin-top: 13px;
 }
@@ -88,15 +91,9 @@
   cursor: pointer;
 }
 
-a:visited {
+a {
+  text-decoration: none;
   color: black;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-a:link {
-  text-decoration: none;
 }
 
 .login__wrap {
