@@ -29,6 +29,10 @@
 #### 글 작성화면
 <img src="https://user-images.githubusercontent.com/84880886/209459714-20d2208d-f7bb-45cc-b15b-f15399201094.png" width="700px"/>
 
+#### 글 보여주는 화면
+<img src="https://user-images.githubusercontent.com/84880886/209460705-d55ad6a0-fd0a-42a9-9f94-d41f4e205dde.png" width="700px"/>
+
+
 ### 📘 Tech stack
 #### front
 - React   
