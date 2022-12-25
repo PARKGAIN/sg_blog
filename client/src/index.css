@@ -205,3 +205,16 @@ a {
 .total_post_margin {
   margin: 5px 0px 5px 300px;
 }
+.post_manage_btn {
+  padding: 5px 10px;
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+  border-radius: 20px;
+}
+.pagination_btn {
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  color: #0d6efd;
+  padding: 5px 12px;
+}

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import PostWriteBtn from "../components/PostWriteBtn";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
 const PostListBlock = styled.div`
   margin-top: 3rem;
 `;
@@ -38,6 +39,7 @@ const PostItemBlock = styled.div`
 const PostItem = () => {
   const [postList, setPostList] = useState("");
   const baseUrl = "http://localhost";
+  const num = postList.length;
   useEffect(() => {
     getPosts();
   }, []);
@@ -55,23 +57,26 @@ const PostItem = () => {
   };
 
   return (
-    <PostItemBlock>
-      <div>
-        {Object.keys(postList).map((unq) => {
-          const id = postList[unq].unq;
-          return (
-            <div key={id} className="flex postlistpage_center">
-              <div className="mr-40">{postList[unq].title}</div>
-              <div className="mr-40">{postList[unq].created_at}</div>
-              <button>
-                <Link to={`${id}`}>글 수정하기</Link>
-              </button>
-              <DeleteBtn id={id} />
-            </div>
-          );
-        })}
-      </div>
-    </PostItemBlock>
+    <>
+      <PostItemBlock>
+        <div>
+          {Object.keys(postList).map((unq) => {
+            const id = postList[unq].unq;
+
+            return (
+              <div key={id} className="flex postlistpage_center">
+                <div className="mr-40">{postList[unq].title}</div>
+                <div className="mr-40">{postList[unq].created_at}</div>
+                <button>
+                  <Link to={`${id}`}>글 수정하기</Link>
+                </button>
+                <DeleteBtn id={id} />
+              </div>
+            );
+          })}
+        </div>
+      </PostItemBlock>
+    </>
   );
 };
 

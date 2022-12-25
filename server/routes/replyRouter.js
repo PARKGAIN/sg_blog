@@ -21,6 +21,14 @@ router.get("/get/:unq", async (req, res) => {
   );
 });
 
+router.get("/totalnumber", async (req, res) => {
+  const sql = "SELECT COUNT(*) count FROM reply";
+  connection.query(sql, (error, rows) => {
+    if (error) throw error;
+    res.send(rows);
+  });
+});
+
 router.delete("/delete/:index", async (req, res) => {
   const id = req.params.index;
   connection.query(`delete from reply where reply_no=${id}`, (error, rows) => {
@@ -28,4 +36,5 @@ router.delete("/delete/:index", async (req, res) => {
     res.send(rows);
   });
 });
+
 module.exports = router;

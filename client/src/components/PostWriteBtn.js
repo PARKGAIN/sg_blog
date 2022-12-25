@@ -6,7 +6,7 @@ function PostWriteBtn() {
     <div>
       <button className={styles.write_btn}>
         <Link to="/posts/write">
-          <span>글 작성하기</span>
+          <span>글 작성하러가기</span>
         </Link>
       </button>
     </div>

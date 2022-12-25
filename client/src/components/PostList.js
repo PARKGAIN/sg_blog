@@ -21,7 +21,7 @@ function PostList({ posts }) {
                 <div
                   style={{
                     whiteSpace: "nowrap",
-                    height: "110px",
+                    height: "145px",
                     textOverflow: "ellipsis",
                     overflow: "hidden",
                     padding: "5px",
