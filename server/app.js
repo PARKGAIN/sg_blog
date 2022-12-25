@@ -10,9 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.listen(3000, function () {
-  console.log("서버ison");
-});
+app.listen(3000, function () {});
 
 app.use("/posts", require("./routes/postRouter"));
 app.use("/reply", require("./routes/replyRouter"));
+app.use("/paginatedposts", require("./routes/pagination"));
