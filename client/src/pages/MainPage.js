@@ -34,37 +34,37 @@ function MainPage() {
       <br />
       <div className="post_write_page_center">
         <Link to="/1">
-          <button>1</button>
+          <button className="pagination_btn">1</button>
         </Link>
         <Link to="/2">
-          <button>2</button>
+          <button className="pagination_btn">2</button>
         </Link>
         <Link to="/3">
-          <button>3</button>
+          <button className="pagination_btn">3</button>
         </Link>
         <Link to="/4">
-          <button>4</button>
+          <button className="pagination_btn">4</button>
         </Link>
         <Link to="/5">
-          <button>5</button>
+          <button className="pagination_btn">5</button>
         </Link>
         <Link to="/6">
-          <button>6</button>
+          <button className="pagination_btn">6</button>
         </Link>
         <Link to="/7">
-          <button>7</button>
+          <button className="pagination_btn">7</button>
         </Link>
         <Link to="/8">
-          <button>8</button>
+          <button className="pagination_btn">8</button>
         </Link>
         <Link to="/9">
-          <button>9</button>
+          <button className="pagination_btn">9</button>
         </Link>
         <Link to="/10">
-          <button>10</button>
+          <button className="pagination_btn">10</button>
         </Link>
         <Link to="/11">
-          <button>&gt;</button>
+          <button className="pagination_btn">&gt;</button>
         </Link>
       </div>
       <br />
