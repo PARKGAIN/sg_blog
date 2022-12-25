@@ -61,37 +61,9 @@
       
        3.  issue#9 (링크: https://github.com/PARKGAIN/sg_blog/issues/9) 여기에서 삭제 후 getPost()를 호출해도 바로 렌더링이 안되는 이유가 궁금합니다
        
-       4. 페이징처리를 서버에서 api로 받아와서 처리하고 있는데 
+       (4. 페이징처리부분은 현재 해결중이지만 해결 못했을 경우 질문하고 싶습니다!!!)
        
-       ```javascript
-       router.get("/", async (req, res) => {
-  let sql = "select * from post";
-  connection.query(sql, (err, result) => {
-    if (err) throw err;
-    const numOfPosts = result.length;
-    const numOfPages = Math.ceil(numOfPosts / postPerPage);
-    let page = req.query.page ? Number(req.query.page) : 1;
-    if (page > numOfPages) {
-      res.redirect("/page?=" + encodeURIComponent(numOfPages));
-    } else if (page < 1) {
-      res.redirect("/page?=" + encodeURIComponent("1"));
-    }
-    const startingLimit = (page - 1) * postPerPage;
-    sql = `select * from post limit ${startingLimit},${postPerPage}`;
-    connection.query(sql, (error, result) => {
-      if (error) throw error;
-      let iterator = page - 5 < 1 ? 1 : page - 5;
-      let endingLink =
-        iterator + 9 < numOfPages ? iterator + 9 : page + (numOfPages - page);
-      if (endingLink < page + 4) {
-        iterator -= page + 4 - numOfPages;
-      }
-      res.send({ result, page, iterator, endingLink, numOfPages });
-    });
-  });
-  // console.log(posts);
-});
-```
+      
 
 
 
