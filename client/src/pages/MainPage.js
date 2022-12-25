@@ -33,25 +33,39 @@ function MainPage() {
       <br />
       <br />
       <div className="post_write_page_center">
-        <button
-          onClick={() => {
-            setPage(1);
-          }}
-        >
-          1
-        </button>
-        <button>
-          <Link to="/2">2</Link>
-        </button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>10</button>
-        <button>&gt;</button>
+        <Link to="/1">
+          <button>1</button>
+        </Link>
+        <Link to="/2">
+          <button>2</button>
+        </Link>
+        <Link to="/3">
+          <button>3</button>
+        </Link>
+        <Link to="/4">
+          <button>4</button>
+        </Link>
+        <Link to="/5">
+          <button>5</button>
+        </Link>
+        <Link to="/6">
+          <button>6</button>
+        </Link>
+        <Link to="/7">
+          <button>7</button>
+        </Link>
+        <Link to="/8">
+          <button>8</button>
+        </Link>
+        <Link to="/9">
+          <button>9</button>
+        </Link>
+        <Link to="/10">
+          <button>10</button>
+        </Link>
+        <Link to="/11">
+          <button>&gt;</button>
+        </Link>
       </div>
       <br />
     </div>
