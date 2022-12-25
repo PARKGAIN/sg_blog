@@ -51,33 +51,5 @@ router.delete("/delete", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-const postPerPage = 6;
-router.get("/", async (req, res) => {
-  let sql = "select * from post";
-  connection.query(sql, (err, result) => {
-    if (err) throw err;
-    const numOfPosts = result.length;
-    const numOfPages = Math.ceil(numOfPosts / postPerPage);
-    let page = req.query.page ? Number(req.query.page) : 1;
-    if (page > numOfPages) {
-      res.redirect("/page?=" + encodeURIComponent(numOfPages));
-    } else if (page < 1) {
-      res.redirect("/page?=" + encodeURIComponent("1"));
-    }
-    const startingLimit = (page - 1) * postPerPage;
-    sql = `select * from post limit ${startingLimit},${postPerPage}`;
-    connection.query(sql, (error, result) => {
-      if (error) throw error;
-      let iterator = page - 5 < 1 ? 1 : page - 5;
-      let endingLink =
-        iterator + 9 < numOfPages ? iterator + 9 : page + (numOfPages - page);
-      if (endingLink < page + 4) {
-        iterator -= page + 4 - numOfPages;
-      }
-      res.send({ result, page, iterator, endingLink, numOfPages });
-    });
-  });
-  // console.log(posts);
-});
 
 module.exports = router;

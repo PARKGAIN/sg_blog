@@ -22,4 +22,4 @@ POST http://localhost:3000/reply/write
 GET http://localhost:3000/posts?page=2
 
 ###
-GET http://localhost:3000/reply/totalnumber
+GET http://localhost:3000/paginatedposts/2

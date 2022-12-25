@@ -8,16 +8,15 @@ import Header from "../components/Header";
 function MainPage() {
   const [posts, setPosts] = useState("");
   const [page, setPage] = useState("1");
-  const [number, setNum] = useState([1, 2, 3, 4, 5, 6]);
   useEffect(() => {
     getPosts();
   }, []);
 
   const getPosts = async () => {
     try {
-      const res = await axios.get(`http://localhost/posts?page=${page}`);
+      const res = await axios.get(`http://localhost/paginatedposts/${page}`);
       const copy = [...posts];
-      const fetchedPosts = copy.concat(res.data.result);
+      const fetchedPosts = copy.concat(res.data);
       setPosts(fetchedPosts);
     } catch {
       (error) => {
@@ -34,22 +33,25 @@ function MainPage() {
       <br />
       <br />
       <div className="post_write_page_center">
-        {number.map((e, i) => {
-          return (
-            <>
-              <button
-                className="pagination_btn"
-                key={i}
-                onClick={() => {
-                  setPage(number[i]);
-                }}
-              >
-                {number[i]}
-              </button>
-            </>
-          );
-        })}
-        <button className="pagination_btn">&gt;</button>
+        <button
+          onClick={() => {
+            setPage(1);
+          }}
+        >
+          1
+        </button>
+        <button>
+          <Link to="/2">2</Link>
+        </button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>10</button>
+        <button>&gt;</button>
       </div>
       <br />
     </div>

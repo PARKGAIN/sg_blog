@@ -7,13 +7,14 @@ import PostListPage from "./pages/PostListPage";
 import PostPage from "./pages/PostPage";
 import EditPage from "./pages/EditPage";
 import DeletePost from "./components/DeletePost";
+import PaginatedMainPage from "./pages/PaginatedMainPage";
 function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/:page" element={<PaginatedMainPage />} />
         <Route path="/posts/write" element={<WritePage />} />
-        {/* 이거 아마 aaadddmin 에다가 버튼 옮기면 /aaadddmin/앞에 써줘야할듯 */}
         <Route path="/aaadddmin" element={<AdminPage />} />
         <Route path="/posts/manage" element={<PostListPage />} />
         <Route path="/posts/manage/:unq" element={<EditPage />} />
