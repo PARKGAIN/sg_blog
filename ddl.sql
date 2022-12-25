@@ -1,7 +1,7 @@
 CREATE TABLE post(
 	unq int unsigned not null auto_increment,
  	title varchar(200) not null,
-	content tinytext,
+	content longtext,
 	name varchar(20),
 	created_at datetime not null default now(),
 	hits int unsigned default '0',
