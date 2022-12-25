@@ -52,4 +52,11 @@ router.delete("/delete", async (req, res) => {
   }
 });
 
+router.get("/numofposts", async (req, res) => {
+  const sql = "SELECT COUNT(*) count FROM post";
+  connection.query(sql, (error, rows) => {
+    if (error) throw error;
+    res.send(rows);
+  });
+});
 module.exports = router;

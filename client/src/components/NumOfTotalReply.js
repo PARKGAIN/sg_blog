@@ -8,7 +8,6 @@ function NumOfTotalReply() {
   const getReplyNum = async () => {
     try {
       const res = await axios.get("http://localhost/reply/totalnumber");
-      console.log(res.data);
       setNumOfReply(res.data[0].count);
     } catch {
       (error) => {
