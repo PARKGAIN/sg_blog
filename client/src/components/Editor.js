@@ -17,7 +17,6 @@ const Editor = memo((props) => {
       formData.append("img", file);
       try {
         const result = await axios.post("http://localhost:4000/img", formData);
-        console.log("성공시", result.data.url);
         const IMG_URL = result.data.url;
         const editor = quillRef.current.getEditor();
         const range = editor.getSelection();

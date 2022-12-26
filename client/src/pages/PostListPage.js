@@ -39,7 +39,7 @@ const PostItemBlock = styled.div`
 const PostItem = () => {
   const [postList, setPostList] = useState("");
   const baseUrl = "http://localhost";
-  const num = postList.length;
+
   useEffect(() => {
     getPosts();
   }, []);

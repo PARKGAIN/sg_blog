@@ -29,9 +29,6 @@ const upload = multer({
 });
 
 app.post("/img", upload.single("img"), (req, res) => {
-  console.log("전달받은 파일" + req.file);
-  console.log(req.file.filename);
-
   const IMG_URL = `http://localhost:4000/uploads/${req.file.filename}`;
   res.json({ url: IMG_URL });
 });
