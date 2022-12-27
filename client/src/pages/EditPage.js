@@ -11,11 +11,10 @@ function EditPage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
 
-  const baseUrl = "http://localhost";
 
   const getOnePost = async () => {
     try {
-      const res = await axios.get(baseUrl + `/posts/manage/${unq}`);
+      const res = await axios.get(process.env.REACT_APP_API_URL + `/posts/manage/${unq}`);
       const copy = [...post];
       const fetched = res.data;
       const newCopy = copy.concat(fetched);
