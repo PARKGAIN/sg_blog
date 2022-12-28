@@ -8,10 +8,9 @@ function WritePage() {
   const [title, setTitle] = useState("");
   const content = useRef("");
   const navigate = useNavigate();
-  const baseUrl = "http://localhost";
   const sendPost = async () => {
     try {
-      await axios.post(baseUrl + "/posts/write", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/posts/write`, {
         title: title,
         content: content.current,
       });

@@ -14,7 +14,7 @@ function EditPage() {
 
   const getOnePost = async () => {
     try {
-      const res = await axios.get(process.env.REACT_APP_API_URL + `/posts/manage/${unq}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage/${unq}`);
       const copy = [...post];
       const fetched = res.data;
       const newCopy = copy.concat(fetched);
@@ -26,7 +26,7 @@ function EditPage() {
 
   const updatePosts = async () => {
     try {
-      await axios.put(baseUrl + "/posts/update", {
+      await axios.put(`${process.env.REACT_APP_API_URL}/posts/update`, {
         unq: unq,
         title: title,
         content: content.current,

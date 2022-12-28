@@ -14,7 +14,7 @@ function MainPage() {
 
   const getPosts = async () => {
     try {
-      const res = await axios.get(`http://localhost/paginatedposts/${page}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/paginatedposts/${page}`);
       const copy = [...posts];
       const fetchedPosts = copy.concat(res.data);
       setPosts(fetchedPosts);

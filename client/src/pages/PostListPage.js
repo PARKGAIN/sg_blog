@@ -38,14 +38,13 @@ const PostItemBlock = styled.div`
 
 const PostItem = () => {
   const [postList, setPostList] = useState("");
-  const baseUrl = "http://localhost";
 
   useEffect(() => {
     getPosts();
   }, []);
   const getPosts = async () => {
     try {
-      const res = await axios.get(baseUrl + "/posts/manage");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage`);
       const copy = [...postList];
       const festchedPosts = copy.concat(res.data);
       setPostList(festchedPosts);

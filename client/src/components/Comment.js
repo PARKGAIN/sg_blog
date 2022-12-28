@@ -11,7 +11,7 @@ const ReplyAddBtn = styled.button`
   background-color: black;
 `;
 function Comment({ unq }) {
-  const baseUrl = "http://localhost";
+
   useEffect(() => {
     getReply();
   }, []);
@@ -26,7 +26,7 @@ function Comment({ unq }) {
 
   const sendReply = async () => {
     try {
-      await axios.post(baseUrl + "/reply/write", inputs);
+      await axios.post(`${process.env.REACT_APP_API_URL}/reply/write`, inputs);
       alert("댓글이 저장되었습니다");
     } catch {
       (error) => {
