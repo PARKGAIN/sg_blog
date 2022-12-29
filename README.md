@@ -35,7 +35,7 @@
 
 ### 📘 Tech stack
 #### front
-- React   
+- React   &nbsp;v.18
 
 #### back
 - node.js  &nbsp; v16.18.1
