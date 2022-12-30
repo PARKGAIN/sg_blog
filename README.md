@@ -83,7 +83,7 @@ module.exports = router;
           
        2. axios.get 으로 받아온 json array를 Obect.keys().map()으로 처리했는데 json array에서 배열만 빼서 map메소드로만 처리하는 방법이 궁금합니다.
       
-       3.  issue#9 (링크: https://github.com/PARKGAIN/sg_blog/issues/9) 여기에서 삭제 후 getPost()를 호출해도 바로 렌더링이 안되는 이유가 궁금합니다
+     
        
        
        
