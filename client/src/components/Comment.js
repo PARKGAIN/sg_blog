@@ -11,7 +11,6 @@ const ReplyAddBtn = styled.button`
   background-color: black;
 `;
 function Comment({ unq }) {
-
   useEffect(() => {
     getReply();
   }, []);
@@ -45,12 +44,13 @@ function Comment({ unq }) {
       (error) => console.log(error);
     }
   };
-  const navigate = useNavigate(-1);
+
   const deleteReply = async (reply_id) => {
     try {
       await axios.delete(baseUrl + `/reply/delete/${reply_id}`);
       alert("댓글이 삭제되었습니다");
-      navigate(-1);
+      const res = await axios.get(baseUrl + `/reply/get/${unq}`);
+      setReply(res.data);
     } catch {
       (error) => console.log(error);
     }
