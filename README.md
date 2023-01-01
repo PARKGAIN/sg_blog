@@ -45,9 +45,6 @@
 #### 개발도구
 - VScode
 
-### 📖 시스템 구조 (개발 전 설계할 때 이렇게 설계한 후 개발하였습니다)
-<img src="https://user-images.githubusercontent.com/84880886/207066961-8c5a736c-e490-4788-8100-be6d103dad00.png" width="700px"/>
-
 ### 서버 포트 번호
 - 리액트 : 8080
 - nginx(프록시 서버) :80
