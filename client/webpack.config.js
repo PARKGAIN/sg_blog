@@ -4,6 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const { webpack } = require("webpack");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -57,6 +58,8 @@ module.exports = () => {
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {
     config.mode = "development";
+    // config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    // config.plugins.push(new ReactRefreshWebpackPlugin());
   }
   return config;
 };
