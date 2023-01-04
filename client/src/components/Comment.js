@@ -20,7 +20,7 @@ function Comment({ unq }) {
     password: "",
     content: "",
   });
-  const [reply, setReply] = useState("");
+  const [reply, setReply] = useState([]);
   const [showReplyInput, setShowReplyInput] = useState("");
 
   const sendReply = async () => {
@@ -68,7 +68,7 @@ function Comment({ unq }) {
   };
   return (
     <div>
-      {Object.keys(reply).map((e, i) => {
+      {reply.map((e, i) => {
         const reply_id = reply[i].reply_no;
         const reply_password = reply[i].password;
         return (

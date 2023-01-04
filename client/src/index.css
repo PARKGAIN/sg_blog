@@ -218,3 +218,12 @@ a {
   color: #0d6efd;
   padding: 5px 12px;
 }
+.width_50 {
+  width: 50%;
+}
+.margin_10_auto {
+  margin: 10px auto;
+}
+.width_17rem {
+  width: 17rem;
+}

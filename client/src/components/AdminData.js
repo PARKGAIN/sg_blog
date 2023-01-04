@@ -6,7 +6,7 @@ import NumOfTotalPost from "../components/NumOfTotalPost";
 import NumOfTotalReply from "./NumOfTotalReply";
 function AdminData() {
   return (
-    <div style={{ width: "50%", margin: "10px auto" }}>
+    <div className="width_50 margin_10_auto">
       <ListGroup as="ol" numbered>
         <ListGroup.Item
           as="li"

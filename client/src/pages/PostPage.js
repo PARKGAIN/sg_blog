@@ -6,13 +6,15 @@ import Comment from "../components/Comment";
 import parser from "html-react-parser";
 function PostPage() {
   const { unq } = useParams();
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState([]);
   useEffect(() => {
     getOnePost();
   }, []);
   const getOnePost = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage/${unq}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
+      );
       const copy = [...post];
       const fetched = res.data;
       const newCopy = copy.concat(fetched);
@@ -27,7 +29,7 @@ function PostPage() {
     <div className="main_page_center">
       <Header />
       <div style={{ width: "760px", margin: "0px auto" }}>
-        {Object.keys(post).map((e, i) => {
+        {post.map((e, i) => {
           return (
             <div key={e}>
               <h1>{post[i].title}</h1>

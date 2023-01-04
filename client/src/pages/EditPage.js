@@ -7,14 +7,15 @@ import CancelBtn from "../components/CancelBtn";
 
 function EditPage() {
   const { unq } = useParams();
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState([]);
   const [title, setTitle] = useState("");
   const content = useRef("");
 
-
   const getOnePost = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage/${unq}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
+      );
       const copy = [...post];
       const fetched = res.data;
       const newCopy = copy.concat(fetched);
@@ -42,13 +43,12 @@ function EditPage() {
 
   const handleContent = (value) => {
     content.current = value;
-    console.log(content.current);
   };
   return (
     <div>
       <div className="ml-40 mr-40">
         <div className="pt-5rem pb-5rem ">
-          {Object.keys(post).map((i) => (
+          {post.map((i) => (
             <input
               className="title_input"
               key={0}

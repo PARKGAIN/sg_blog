@@ -14,6 +14,7 @@ function WritePage() {
         title: title,
         content: content.current,
       });
+      alert("글이 저장되었습니다");
       navigate(-1);
     } catch {
       (error) => console.log(error);
@@ -23,7 +24,6 @@ function WritePage() {
   const saveText = "글 저장하기";
   const handleContent = (value) => {
     content.current = value;
-    console.log(content.current);
   };
   return (
     <div className="post_write_page_center">

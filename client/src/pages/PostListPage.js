@@ -37,14 +37,16 @@ const PostItemBlock = styled.div`
 `;
 
 const PostItem = () => {
-  const [postList, setPostList] = useState("");
+  const [postList, setPostList] = useState([]);
 
   useEffect(() => {
     getPosts();
   }, []);
   const getPosts = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/posts/manage`
+      );
       const copy = [...postList];
       const festchedPosts = copy.concat(res.data);
       setPostList(festchedPosts);
@@ -59,7 +61,7 @@ const PostItem = () => {
     <>
       <PostItemBlock>
         <div>
-          {Object.keys(postList).map((unq) => {
+          {postList.map((unq) => {
             const id = postList[unq].unq;
 
             return (
