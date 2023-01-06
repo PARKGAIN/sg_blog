@@ -17,15 +17,13 @@ function EditPage() {
   if (!post) return null;
 
   const getSinglePost = async () => {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
-    );
+    const res = await axios.get(`http://localhost/posts/manage/${unq}`);
     return res.data;
   };
 
   const updatePosts = async () => {
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/posts/update`, {
+      await axios.put(`http://localhost/posts/update`, {
         unq: unq,
         title: title,
         content: content.current,

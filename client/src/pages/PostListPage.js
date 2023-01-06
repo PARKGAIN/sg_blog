@@ -38,7 +38,7 @@ const PostItemBlock = styled.div`
 `;
 
 const getPosts = async () => {
-  const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage`);
+  const res = await axios.get(`http://localhost/posts/manage`);
   return res.data;
 };
 
