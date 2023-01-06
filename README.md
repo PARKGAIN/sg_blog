@@ -51,32 +51,11 @@
 - 글, 댓글 서버 : 3000
 - 이미지 서버 : 4000
 
-### ⭐ 프로젝트 중 확인받고 싶었던 부분
-#### 페이징처리부분!
-
-```javascript
-const connection = require("../dbConfig");
-const router = require("express").Router();
-
-const postPerPage = 6;
-router.get("/:page", async (req, res) => {
-  const received = req.params;
-  const page = parseInt(received.page);
-  const startNumber = (page - 1) * postPerPage;
-  const sql = `select * from post limit ${startNumber}, 6`;
-  connection.query(sql, (error, rows) => {
-    if (error) throw error;
-    res.send(rows);
-  });
-});
-
-module.exports = router;
-```
 
 ### ⭐ 개발 과정에서 궁금했던 부분
 
        
-       1.  현재 컴포넌트마다 각각 api 호출해서 하고 있는데 api 호출하는 부분을 recoil이나 redux로 전역상태로 따로 빼서 관리하는 것이 좋은지 궁금합니다.(코드리뷰를 통해 따로 커스텀 훅으로 빼면 좋다는 것을 알게 됨)
+       1.  현재 컴포넌트마다 각각 api 호출해서 하고 있는데 api 호출하는 부분을 recoil이나 redux로 전역상태로 따로 빼서 관리하는 것이 좋은지 궁금합니다.(코드리뷰를 통해 따로 커스텀 훅으로 변경중)
           
        2. axios.get 으로 받아온 json array를 Obect.keys().map()으로 처리했는데 json array에서 배열만 빼서 map메소드로만 처리하는 방법이 궁금합니다. (답변 해주셔서 해결 완료)
       
