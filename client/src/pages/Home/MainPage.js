@@ -1,10 +1,10 @@
 import React from "react";
-import NumOfTotalPost from "../components/NumOfTotalPost";
-import PostList from "../components/PostList";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Header from "../components/Header";
-import useAsync from "../hooks/useAsync";
+import NumOfTotalPost from "../../components/NumOfTotalPost";
+import PostList from "../../components/PostList";
+import Header from "../../components/Header";
+import useAsync from "../../hooks/useAsync";
 
 const getPosts = async () => {
   const res = await axios.get("http://localhost/paginatedposts/1");

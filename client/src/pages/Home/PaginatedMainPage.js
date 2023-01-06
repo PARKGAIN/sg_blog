@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../components/Header";
-import NumOfTotalPost from "../components/NumOfTotalPost";
-import PostList from "../components/PostList";
 import { useParams, Link } from "react-router-dom";
-import useAsync from "../hooks/useAsync";
+import Header from "../../components/Header";
+import NumOfTotalPost from "../../components/NumOfTotalPost";
+import PostList from "../../components/PostList";
+import useAsync from "../../hooks/useAsync";
 
 function PaginatedMainPage() {
   const { page } = useParams();

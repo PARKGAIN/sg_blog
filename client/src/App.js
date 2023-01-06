@@ -2,12 +2,12 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import WritePage from "./pages/WritePage";
 import AdminPage from "./pages/AdminPage";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/Home/MainPage";
 import PostListPage from "./pages/PostListPage";
 import PostPage from "./pages/PostPage";
 import EditPage from "./pages/EditPage";
 import DeletePost from "./components/DeletePost";
-import PaginatedMainPage from "./pages/PaginatedMainPage";
+import PaginatedMainPage from "./pages/Home/PaginatedMainPage";
 function App() {
   return (
     <div>
