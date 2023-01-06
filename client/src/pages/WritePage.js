@@ -10,7 +10,7 @@ function WritePage() {
   const navigate = useNavigate();
   const sendPost = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/posts/write`, {
+      await axios.post(`http://localhost/posts/write`, {
         title: title,
         content: content.current,
       });

@@ -7,19 +7,16 @@ import useAsync from "../hooks/useAsync";
 
 function PaginatedMainPage() {
   const { page } = useParams();
+  const getPosts = async () => {
+    const res = await axios.get(`http://localhost/paginatedposts/${page}`);
+    return res.data;
+  };
   const [state, refetch] = useAsync(getPosts, []);
   const { loading, data: posts, error } = state;
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;
-
-  const getPosts = async () => {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/paginatedposts/${page}`
-    );
-    return res.data;
-  };
 
   return (
     <div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import AdminData from "../components/AdminData";
 import PostWriteBtn from "../components/PostWriteBtn";
 import { faUserLarge } from "@fortawesome/free-solid-svg-icons";

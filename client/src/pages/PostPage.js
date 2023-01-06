@@ -8,19 +8,16 @@ import useAsync from "../hooks/useAsync";
 
 function PostPage() {
   const { unq } = useParams();
+  const getSinglePost = async () => {
+    const res = await axios.get(`http://localhost/posts/manage/${unq}`);
+    return res.data;
+  };
   const [state, refetch] = useAsync(getSinglePost, []);
   const { loading, data: post, error } = state;
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!post) return null;
-
-  const getSinglePost = async () => {
-    const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
-    );
-    return res.data;
-  };
 
   return (
     <div className="main_page_center">

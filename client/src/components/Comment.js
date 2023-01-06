@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import ReplyToReply from "./ReplyToReply";
+import useAsync from "../hooks/useAsync";
 
 const ReplyAddBtn = styled.button`
   padding: 5px 30px;
@@ -11,21 +12,27 @@ const ReplyAddBtn = styled.button`
   background-color: black;
 `;
 function Comment({ unq }) {
-  useEffect(() => {
-    getReply();
-  }, []);
+  const getReply = async () => {
+    const res = await axios.get(`http://localhost/reply/get/${unq}`);
+    return res.data;
+  };
+  const [state, refetch] = useAsync(getReply, []);
+  const { loading, data: reply, error } = state;
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!reply) return null;
   const [inputs, setInputs] = useState({
     unq: unq,
     nickname: "",
     password: "",
     content: "",
   });
-  const [reply, setReply] = useState([]);
   const [showReplyInput, setShowReplyInput] = useState("");
 
   const sendReply = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/reply/write`, inputs);
+      await axios.post(`http://localhost/reply/write`, inputs);
       alert("댓글이 저장되었습니다");
     } catch {
       (error) => {
@@ -34,23 +41,12 @@ function Comment({ unq }) {
     }
     getReply();
   };
-  const getReply = async () => {
-    try {
-      const res = await axios.get(baseUrl + `/reply/get/${unq}`);
-      const copy = [...reply];
-      const fetchedReply = copy.concat(res.data);
-      setReply(fetchedReply);
-    } catch {
-      (error) => console.log(error);
-    }
-  };
 
   const deleteReply = async (reply_id) => {
     try {
-      await axios.delete(baseUrl + `/reply/delete/${reply_id}`);
+      await axios.delete(`http://localhost/reply/delete/${reply_id}`);
       alert("댓글이 삭제되었습니다");
-      const res = await axios.get(baseUrl + `/reply/get/${unq}`);
-      setReply(res.data);
+      getReply();
     } catch {
       (error) => console.log(error);
     }
@@ -94,7 +90,7 @@ function Comment({ unq }) {
             >
               댓글
             </button>
-            <hr style={{ marginTop: "5px" }} />
+            <hr className="mt-5" />
             <ReplyToReply showReplyInput={showReplyInput} />
           </div>
         );

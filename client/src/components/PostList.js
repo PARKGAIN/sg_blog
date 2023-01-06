@@ -7,17 +7,16 @@ import parser from "html-react-parser";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function PostList({ posts }) {
-  console.log(posts);
   return (
     <Row xs={1} md={3} className="g-4 width_934 main_page_center">
-      {posts.map((unq) => {
-        const id = posts[unq].unq;
+      {posts.map((e, i) => {
+        console.log(e);
         return (
-          <Col key={id}>
+          <Col key={i}>
             <Card className="width_17rem">
               <Card.Body>
                 <Card.Title className="text_center">
-                  {posts[unq].title}
+                  {posts[i].title}
                 </Card.Title>
                 <div
                   style={{
@@ -28,10 +27,10 @@ function PostList({ posts }) {
                     padding: "5px",
                   }}
                 >
-                  {parser(posts[unq].content)}
+                  {parser(posts[i].content)}
                 </div>
                 <a variant="primary">
-                  <Link to={`/posts/${id}`}>
+                  <Link to={`/posts/${posts[i].unq}`}>
                     <FontAwesomeIcon
                       icon={faRightLong}
                       className="float_right"

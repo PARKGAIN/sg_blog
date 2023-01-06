@@ -11,7 +11,7 @@ function DeletePost() {
 
   const deletePosts = async () => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/posts/delete`, {
+      await axios.delete(`http://localhost/posts/delete`, {
         params: {
           unq: unq,
         },
