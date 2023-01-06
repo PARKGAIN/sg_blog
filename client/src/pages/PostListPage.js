@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import styled from "styled-components";
 import PostWriteBtn from "../components/PostWriteBtn";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import useAsync from "../hooks/useAsync";
 
 const PostListBlock = styled.div`
   margin-top: 3rem;
@@ -36,26 +37,18 @@ const PostItemBlock = styled.div`
   }
 `;
 
-const PostItem = () => {
-  const [postList, setPostList] = useState([]);
+const getPosts = async () => {
+  const res = await axios.get(`${process.env.REACT_APP_API_URL}/posts/manage`);
+  return res.data;
+};
 
-  useEffect(() => {
-    getPosts();
-  }, []);
-  const getPosts = async () => {
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/posts/manage`
-      );
-      const copy = [...postList];
-      const festchedPosts = copy.concat(res.data);
-      setPostList(festchedPosts);
-    } catch {
-      (error) => {
-        console.log(error);
-      };
-    }
-  };
+const PostItem = () => {
+  const [state, refetch] = useAsync(getPosts, []);
+  const { loading, data: postList, error } = state;
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!postList) return null;
 
   return (
     <>
@@ -101,19 +94,19 @@ function DeleteBtn({ id }) {
   const navigate = useNavigate();
   const submit = () => {
     confirmAlert({
-      title: "Confirm to submit",
+      title: "정말 삭제하시겠습니까",
       message: "정말 삭제하시겠습니까?",
       buttons: [
         {
-          label: "Yes",
+          label: "예",
           onClick: () => {
-            alert("Click Yes"), navigate(`/posts/delete/${id}`);
+            alert("Click 예"), navigate(`/posts/delete/${id}`);
           },
         },
         {
-          label: "No",
+          label: "아니오",
           onClick: () => {
-            alert("Click No"), navigate(-1);
+            alert("Click 아니오"), navigate(-1);
           },
         },
       ],

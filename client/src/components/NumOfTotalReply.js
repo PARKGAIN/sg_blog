@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
+import useAsync from "../hooks/useAsync";
+
+const getReplyNum = async () => {
+  const res = await axios.get("http://localhost/reply/totalnumber");
+  return res.data;
+};
+
 function NumOfTotalReply() {
-  const [numOfReply, setNumOfReply] = useState();
-  useEffect(() => {
-    getReplyNum();
-  }, []);
-  const getReplyNum = async () => {
-    try {
-      const res = await axios.get("http://localhost/reply/totalnumber");
-      setNumOfReply(res.data[0].count);
-    } catch {
-      (error) => {
-        console.log(error);
-      };
-    }
-  };
+  const [state, refetch] = useAsync(getReplyNum, []);
+  const { loading, data: reply_num, error } = state;
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!reply_num) return null;
   return (
     <div>
       <img
-        src={`https://img.shields.io/badge/총 댓글-${numOfReply} 개-pink`}
+        src={`https://img.shields.io/badge/총 댓글-${reply_num[0].count} 개-pink`}
         className="total_post_margin"
       />
     </div>

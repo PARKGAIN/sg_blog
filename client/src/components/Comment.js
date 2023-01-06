@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import ReplyToReply from "./ReplyToReply";
-import { useNavigate } from "react-router-dom";
+
 const ReplyAddBtn = styled.button`
   padding: 5px 30px;
   border: 1px solid #eeeeee;

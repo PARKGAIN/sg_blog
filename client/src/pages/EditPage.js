@@ -4,25 +4,23 @@ import Editor from "../components/Editor";
 import { Link, useParams } from "react-router-dom";
 import styles from "../Btn.module.css";
 import CancelBtn from "../components/CancelBtn";
+import useAsync from "../hooks/useAsync";
 
 function EditPage() {
   const { unq } = useParams();
-  const [post, setPost] = useState([]);
+  const [state, refetch] = useAsync(getSinglePost, []);
+  const { loading, data: post, error } = state;
   const [title, setTitle] = useState("");
   const content = useRef("");
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!post) return null;
 
-  const getOnePost = async () => {
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
-      );
-      const copy = [...post];
-      const fetched = res.data;
-      const newCopy = copy.concat(fetched);
-      setPost(newCopy);
-    } catch {
-      (error) => console.log(error);
-    }
+  const getSinglePost = async () => {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
+    );
+    return res.data;
   };
 
   const updatePosts = async () => {
@@ -36,10 +34,6 @@ function EditPage() {
       (error) => console.log(error);
     }
   };
-
-  useEffect(() => {
-    getOnePost();
-  }, []);
 
   const handleContent = (value) => {
     content.current = value;

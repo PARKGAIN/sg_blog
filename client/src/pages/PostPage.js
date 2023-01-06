@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "../components/Header";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Comment from "../components/Comment";
 import parser from "html-react-parser";
+import useAsync from "../hooks/useAsync";
+
 function PostPage() {
   const { unq } = useParams();
-  const [post, setPost] = useState([]);
-  useEffect(() => {
-    getOnePost();
-  }, []);
-  const getOnePost = async () => {
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
-      );
-      const copy = [...post];
-      const fetched = res.data;
-      const newCopy = copy.concat(fetched);
-      setPost(newCopy);
-    } catch {
-      (error) => {
-        console.log(error);
-      };
-    }
+  const [state, refetch] = useAsync(getSinglePost, []);
+  const { loading, data: post, error } = state;
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!post) return null;
+
+  const getSinglePost = async () => {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/posts/manage/${unq}`
+    );
+    return res.data;
   };
+
   return (
     <div className="main_page_center">
       <Header />

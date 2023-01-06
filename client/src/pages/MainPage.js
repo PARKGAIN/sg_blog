@@ -4,25 +4,22 @@ import PostList from "../components/PostList";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
+import useAsync from "../hooks/useAsync";
 
 function MainPage() {
-  const [posts, setPosts] = useState("");
   const [page, setPage] = useState("1");
-  useEffect(() => {
-    getPosts();
-  }, []);
+  const [state, refetch] = useAsync(getPosts, []);
+  const { loading, data: posts, error } = state;
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!posts) return null;
 
   const getPosts = async () => {
-    try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/paginatedposts/${page}`);
-      const copy = [...posts];
-      const fetchedPosts = copy.concat(res.data);
-      setPosts(fetchedPosts);
-    } catch {
-      (error) => {
-        console.log(error);
-      };
-    }
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/paginatedposts/${page}`
+    );
+    return res.data;
   };
 
   return (

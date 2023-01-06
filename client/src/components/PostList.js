@@ -7,6 +7,7 @@ import parser from "html-react-parser";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function PostList({ posts }) {
+  console.log(posts);
   return (
     <Row xs={1} md={3} className="g-4 width_934 main_page_center">
       {posts.map((unq) => {
