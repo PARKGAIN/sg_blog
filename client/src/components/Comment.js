@@ -17,18 +17,18 @@ function Comment({ unq }) {
     return res.data;
   };
   const [state, refetch] = useAsync(getReply, []);
-  const { loading, data: reply, error } = state;
-
-  if (loading) return <div>로딩중..</div>;
-  if (error) return <div>에러가 발생했습니다</div>;
-  if (!reply) return null;
+  const [showReplyInput, setShowReplyInput] = useState("");
   const [inputs, setInputs] = useState({
     unq: unq,
     nickname: "",
     password: "",
     content: "",
   });
-  const [showReplyInput, setShowReplyInput] = useState("");
+  const { loading, data: reply, error } = state;
+
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!reply) return null;
 
   const sendReply = async () => {
     try {
