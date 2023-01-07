@@ -34,6 +34,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
+    "darkmode-js": "^1.5.7",
     "html-react-parser": "^3.0.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",

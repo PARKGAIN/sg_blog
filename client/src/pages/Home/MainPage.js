@@ -5,7 +5,7 @@ import NumOfTotalPost from "../../components/NumOfTotalPost";
 import PostList from "../../components/PostList";
 import Header from "../../components/Header";
 import useAsync from "../../hooks/useAsync";
-
+import Darkmode from "darkmode-js";
 const getPosts = async () => {
   const res = await axios.get("http://localhost/paginatedposts/1");
   return res.data;
@@ -18,7 +18,21 @@ function MainPage() {
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!posts) return null;
-
+  const options = {
+    bottom: "64px",
+    right: "32px",
+    left: "unset",
+    time: "0.5s",
+    mixColor: "#fff",
+    backgroundColor: "#fff",
+    buttonColorDark: "#100f2c",
+    buttonColorLight: "#fff",
+    saveInCookies: false,
+    label: "🌓",
+    autoMatchOsTheme: true,
+  };
+  const darkmode = new Darkmode(options);
+  darkmode.showWidget();
   return (
     <div>
       <Header />
