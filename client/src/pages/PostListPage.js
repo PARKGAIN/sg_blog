@@ -54,13 +54,13 @@ const PostItem = () => {
     <>
       <PostItemBlock>
         <div>
-          {postList.map((unq) => {
-            const id = postList[unq].unq;
-
+          {postList.map((e, i) => {
+            console.log(e);
+            const id = postList[i].unq;
             return (
-              <div key={id} className="flex postlistpage_center">
-                <div className="mr-40">{postList[unq].title}</div>
-                <div className="mr-40">{postList[unq].created_at}</div>
+              <div key={i} className="flex postlistpage_center">
+                <div className="mr-40">{postList[i].title}</div>
+                <div className="mr-40">{postList[i].created_at}</div>
                 <button>
                   <Link to={`${id}`}>글 수정하기</Link>
                 </button>
@@ -100,13 +100,14 @@ function DeleteBtn({ id }) {
         {
           label: "예",
           onClick: () => {
-            alert("Click 예"), navigate(`/posts/delete/${id}`);
+            alert("예");
+            deletePosts(id);
           },
         },
         {
           label: "아니오",
           onClick: () => {
-            alert("Click 아니오"), navigate(-1);
+            alert("아니오"), navigate(-1);
           },
         },
       ],
@@ -118,5 +119,20 @@ function DeleteBtn({ id }) {
     </button>
   );
 }
+
+const deletePosts = async (id) => {
+  try {
+    await axios.delete(`http://localhost/posts/delete`, {
+      params: {
+        unq: id,
+      },
+    });
+    alert("삭제완료");
+  } catch {
+    (err) => {
+      console.log(err);
+    };
+  }
+};
 
 export default PostListPage;

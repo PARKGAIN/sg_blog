@@ -6,7 +6,6 @@ import MainPage from "./pages/Home/MainPage";
 import PostListPage from "./pages/PostListPage";
 import PostPage from "./pages/PostPage";
 import EditPage from "./pages/EditPage";
-import DeletePost from "./components/DeletePost";
 import PaginatedMainPage from "./pages/Home/PaginatedMainPage";
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         <Route path="/posts/manage" element={<PostListPage />} />
         <Route path="/posts/manage/:unq" element={<EditPage />} />
         <Route path="/posts/:unq" element={<PostPage />} />
-        <Route path="/posts/delete/:unq" element={<DeletePost />} />
       </Routes>
     </div>
   );
