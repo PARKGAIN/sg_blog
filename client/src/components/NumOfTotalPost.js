@@ -20,6 +20,9 @@ function NumOfTotalPost() {
       <img
         src={`https://img.shields.io/badge/총 게시물-${post_num[0].count} 개-blue`}
         className="total_post_margin"
+        alt="총 게시물 갯수"
+        width={95}
+        height={23}
       />
     </div>
   );

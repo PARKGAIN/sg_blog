@@ -21,7 +21,6 @@ function WritePage() {
     }
   };
 
-  const saveText = "글 저장하기";
   const handleContent = (value) => {
     content.current = value;
   };

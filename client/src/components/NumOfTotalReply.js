@@ -19,6 +19,7 @@ function NumOfTotalReply() {
       <img
         src={`https://img.shields.io/badge/총 댓글-${reply_num[0].count} 개-pink`}
         className="total_post_margin"
+        alt="총 댓글 수"
       />
     </div>
   );

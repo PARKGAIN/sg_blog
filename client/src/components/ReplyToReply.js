@@ -13,7 +13,7 @@ function ReplyToReply({ showReplyInput }) {
 
 function ReReplyInput() {
   return (
-    <div style={{ paddingLeft: "30px" }}>
+    <div className="pl-30">
       <div>
         <input placeholder="닉네임" type="text" />
         <input placeholder="비밀번호" type="password" />
