@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import Editor from "../components/Editor";
 import { Link, useParams } from "react-router-dom";
-import styles from "../Btn.module.css";
 import CancelBtn from "../components/CancelBtn";
 import useAsync from "../hooks/useAsync";
 
@@ -55,7 +54,7 @@ function EditPage() {
 
         <div className="flex">
           <div>
-            <button className={styles.write_btn} onClick={updatePosts}>
+            <button className="write_btn" onClick={updatePosts}>
               글수정하기
             </button>
           </div>
