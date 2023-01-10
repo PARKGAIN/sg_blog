@@ -38,12 +38,12 @@ const PostItemBlock = styled.div`
 `;
 
 const getPosts = async () => {
-  const res = await axios.get(`http://localhost/posts/manage`);
+  const res = await axios.get("http://localhost/posts/manage");
   return res.data;
 };
 
 const PostItem = () => {
-  const [state, refetch] = useAsync(getPosts, []);
+  const [state] = useAsync(getPosts, []);
   const { loading, data: postList, error } = state;
 
   if (loading) return <div>로딩중..</div>;
@@ -122,7 +122,7 @@ function DeleteBtn({ id }) {
 
 const deletePosts = async (id) => {
   try {
-    await axios.delete(`http://localhost/posts/delete`, {
+    await axios.delete("http://localhost/posts/delete", {
       params: {
         unq: id,
       },
