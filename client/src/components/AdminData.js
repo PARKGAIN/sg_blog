@@ -1,4 +1,3 @@
-import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -26,6 +25,14 @@ function AdminData() {
             <div className="fw-bold">총 댓글수</div>
           </div>
           <NumOfTotalReply />
+        </ListGroup.Item>
+        <ListGroup.Item
+          as="li"
+          className="d-flex justify-content-between align-items-start"
+        >
+          <div className="ms-2 me-auto">
+            <div className="fw-bold">좋아요 갯수</div>
+          </div>
         </ListGroup.Item>
         <ListGroup.Item
           as="li"
