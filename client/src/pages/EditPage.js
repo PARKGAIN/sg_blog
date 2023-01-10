@@ -2,8 +2,15 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import Editor from "../components/Editor";
 import { Link, useParams } from "react-router-dom";
-import CancelBtn from "../components/CancelBtn";
 import useAsync from "../hooks/useAsync";
+import styled from "styled-components";
+const CancelBtn = styled.button`
+  padding: 0px 55px;
+  height: 30px
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #d3d3d3;
+`;
 
 function EditPage() {
   const { unq } = useParams();
