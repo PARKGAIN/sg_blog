@@ -1,4 +1,3 @@
-import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import React from "react";
 import { Link } from "react-router-dom";
