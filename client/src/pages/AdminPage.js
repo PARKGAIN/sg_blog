@@ -12,7 +12,6 @@ function AdminPage() {
           <FontAwesomeIcon icon={faUserLarge} />
         </div>
       </div>
-
       <AdminData />
       <PostWriteBtn className="mt-100" />
     </div>

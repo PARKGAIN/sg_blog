@@ -5,14 +5,14 @@ import { useParams } from "react-router-dom";
 import Comment from "../components/Comment";
 import parser from "html-react-parser";
 import useAsync from "../hooks/useAsync";
-
+import Like from "../components/Like";
 function PostPage() {
   const { unq } = useParams();
   const getSinglePost = async () => {
     const res = await axios.get(`http://localhost/posts/manage/${unq}`);
     return res.data;
   };
-  const [state, refetch] = useAsync(getSinglePost, []);
+  const [state] = useAsync(getSinglePost, []);
   const { loading, data: post, error } = state;
 
   if (loading) return <div>로딩중..</div>;
@@ -33,7 +33,7 @@ function PostPage() {
             </div>
           );
         })}
-
+        <Like />
         <hr className="mt-13" />
         <h4>댓글</h4>
         <Comment unq={unq} />
