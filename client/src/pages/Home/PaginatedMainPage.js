@@ -4,14 +4,14 @@ import Header from "../../components/Header";
 import NumOfTotalPost from "../../components/NumOfTotalPost";
 import PostList from "../../components/PostList";
 import useAsync from "../../hooks/useAsync";
-
+import axios from "axios";
 function PaginatedMainPage() {
   const { page } = useParams();
   const getPosts = async () => {
     const res = await axios.get(`http://localhost/paginatedposts/${page}`);
     return res.data;
   };
-  const [state, refetch] = useAsync(getPosts, []);
+  const [state] = useAsync(getPosts, []);
   const { loading, data: posts, error } = state;
 
   if (loading) return <div>로딩중..</div>;
@@ -26,13 +26,8 @@ function PaginatedMainPage() {
       <br />
       <br />
       <div className="post_write_page_center">
-        <button
-          className="pagination_btn"
-          onClick={() => {
-            page = 1;
-          }}
-        >
-          1
+        <button className="pagination_btn">
+          <Link to="/1">1</Link>
         </button>
         <Link to="/2">
           <button className="pagination_btn">2</button>

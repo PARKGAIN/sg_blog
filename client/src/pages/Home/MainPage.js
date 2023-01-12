@@ -12,7 +12,7 @@ const getPosts = async () => {
 };
 
 function MainPage() {
-  const [state, refetch] = useAsync(getPosts, []);
+  const [state] = useAsync(getPosts, []);
   const { loading, data: posts, error } = state;
 
   if (loading) return <div>로딩중..</div>;
