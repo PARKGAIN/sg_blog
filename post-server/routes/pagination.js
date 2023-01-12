@@ -1,4 +1,4 @@
-const connection = require("../dbConfig");
+const connection = require("../config/dbConfig");
 const router = require("express").Router();
 
 const postPerPage = 6;
