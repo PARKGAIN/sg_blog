@@ -1,10 +1,10 @@
 # Blog 
 
-12/25 1차 완료했고, 조회수기능 부분은 아직 좀 더 진행 예정입니다
 ### 📒 개요
 스마일게이트 데브 캠프 1인 프로젝트 blog 입니다. 
 ### 📗 기간
-2022.12.05. ~ 2022.12.25.
+#### 구현 : 2022.12.05. ~ 2022.12.25.
+#### refactor : 2022.12.26. ~
 ### 📙 Feature
 ✔ 글 쓰기/ 수정 
 
@@ -28,11 +28,12 @@
 <img src="https://user-images.githubusercontent.com/84880886/209459708-346ad8e0-24ad-439e-941b-c86e45cf7d12.png" width="900px"/>
 
 #### 글 작성화면
-<img src="https://user-images.githubusercontent.com/84880886/209459714-20d2208d-f7bb-45cc-b15b-f15399201094.png" width="700px"/>
+<img src="https://user-images.githubusercontent.com/84880886/209459714-20d2208d-f7bb-45cc-b15b-f15399201094.png" width="800px"/>
 
 #### 글 보여주는 화면
-<img src="https://user-images.githubusercontent.com/84880886/209460705-d55ad6a0-fd0a-42a9-9f94-d41f4e205dde.png" width="700px"/>
+<img src="https://user-images.githubusercontent.com/84880886/209460705-d55ad6a0-fd0a-42a9-9f94-d41f4e205dde.png" width="800px"/>
 
+<br/>
 
 ### 📘 Tech stack
 #### front
@@ -46,7 +47,14 @@
 #### 개발도구
 - VScode
 
-### 서버 포트 번호
+### 💻 실행방법
+
+
+      post-server , image-server : 명령어 npm start
+      client : 명령어 npm run start:dev
+      제 컴퓨터에서 Nginx 설정을 해서 실행하실 때 client 폴더에서 80번 포트로의 요청을 3000번 포트로 변경해주셔야 합니다.
+
+### ⚙ 서버 포트 번호
 - 리액트 : 8080
 - nginx(프록시 서버) :80
 - 글, 댓글 서버 : 3000
