@@ -93,7 +93,7 @@ function DeleteBtn({ id }) {
   const navigate = useNavigate();
   const submit = () => {
     confirmAlert({
-      title: "정말 삭제하시겠습니까",
+      title: "confirm",
       message: "정말 삭제하시겠습니까?",
       buttons: [
         {

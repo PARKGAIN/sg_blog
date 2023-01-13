@@ -11,7 +11,7 @@ const selectPostQuery = (id) => {
 const selectReplyQuery = (unq) => {
   return `SELECT reply_no,comment,nickname,password,group_number,DATE_FORMAT(CREATED_AT,'%Y-%M-%D %H:%I:%S') AS created_at FROM reply WHERE unq=${unq}`;
 };
-const selectNumOfReplyQuery = "SELECT COUNT(*) count FROM REPLY";
+const selectNumOfReplyQuery = "SELECT COUNT(*) count FROM reply";
 
 const insertReplyQuery = (unq, nickname, password, comment) => {
   return `INSERT INTO reply(unq,nickname,password,comment) VALUES ('${unq}','${nickname}','${password}','${comment}')`;

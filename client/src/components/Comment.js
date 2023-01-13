@@ -16,7 +16,7 @@ function Comment({ unq }) {
     const res = await axios.get(`http://localhost/reply/get/${unq}`);
     return res.data;
   };
-  const [state, refetch] = useAsync(getReply, []);
+  const [state] = useAsync(getReply, []);
   const [showReplyInput, setShowReplyInput] = useState("");
   const [inputs, setInputs] = useState({
     unq: unq,
@@ -32,21 +32,19 @@ function Comment({ unq }) {
 
   const sendReply = async () => {
     try {
-      await axios.post(`http://localhost/reply/write`, inputs);
+      await axios.post("http://localhost/reply/write", inputs);
       alert("댓글이 저장되었습니다");
     } catch {
       (error) => {
         console.log(error);
       };
     }
-    getReply();
   };
 
   const deleteReply = async (reply_id) => {
     try {
       await axios.delete(`http://localhost/reply/delete/${reply_id}`);
       alert("댓글이 삭제되었습니다");
-      getReply();
     } catch {
       (error) => console.log(error);
     }

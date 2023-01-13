@@ -26,19 +26,21 @@ router.get("/manage/:unq", async (req, res) => {
 
 router.put("/update", async (req, res) => {
   try {
-    db.query(sql.updateQuery(req.body.title, req.body.content, req.body.unq));
+    const { title, content, unq } = req.body;
+    db.query(sql.updateQuery(title, content, unq));
     res.json({ message: "updated!" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).send("update error");
   }
 });
 
 router.delete("/delete", async (req, res) => {
   try {
-    db.query(sql.deletePostQuery(req.query.unq));
+    const unq = req.query.unq;
+    db.query(sql.deletePostQuery(unq));
     res.json({ message: "deleted!" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).send("delete error");
   }
 });
 

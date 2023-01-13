@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import NumOfTotalPost from "../../components/NumOfTotalPost";
 import PostList from "../../components/PostList";
@@ -7,6 +7,7 @@ import useAsync from "../../hooks/useAsync";
 import axios from "axios";
 function PaginatedMainPage() {
   const { page } = useParams();
+  const navigate = useNavigate();
   const getPosts = async () => {
     const res = await axios.get(`http://localhost/paginatedposts/${page}`);
     return res.data;
@@ -26,8 +27,13 @@ function PaginatedMainPage() {
       <br />
       <br />
       <div className="post_write_page_center">
-        <button className="pagination_btn">
-          <Link to="/1">1</Link>
+        <button
+          className="pagination_btn"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          1
         </button>
         <Link to="/2">
           <button className="pagination_btn">2</button>

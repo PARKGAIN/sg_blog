@@ -15,15 +15,11 @@ const Editor = memo((props) => {
       const file = input.files[0];
       const formData = new FormData();
       formData.append("img", file);
-      try {
-        const result = await axios.post("http://localhost:4000/img", formData);
-        const IMG_URL = result.data.url;
-        const editor = quillRef.current.getEditor();
-        const range = editor.getSelection();
-        editor.insertEmbed(range.index, "image", IMG_URL);
-      } catch (error) {
-        throw error;
-      }
+      const result = await axios.post("http://localhost:4000/img", formData);
+      const IMG_URL = result.data.url;
+      const editor = quillRef.current.getEditor();
+      const range = editor.getSelection();
+      editor.insertEmbed(range.index, "image", IMG_URL);
     });
   };
 
