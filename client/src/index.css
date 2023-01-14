@@ -82,37 +82,12 @@
   padding: 10px 10px;
   border-bottom: 1px solid #d3d3d3;
 }
-.darkmode-border {
-  margin-top: 10px;
-  border: 1px solid black;
-  padding: 1.5px 15px;
-  border-radius: 95px;
-  cursor: pointer;
-}
-.darkmode-border:hover {
-  margin-top: 10px;
-  border: 1px solid gray;
-  border-radius: 95px;
-  color: gray;
-  cursor: pointer;
-}
 
 a {
   text-decoration: none;
   color: black;
 }
 
-.login__wrap {
-  position: absolute;
-  border: 1px solid rgb(236, 238, 242);
-  border-radius: 4px;
-  width: 460px;
-  height: 360px;
-  padding: 20px 40px;
-  left: 50%;
-  top: 50%;
-  margin: -180px 0px 0px -230px;
-}
 .button__stylebutton {
   width: 360px;
   cursor: pointer;
@@ -125,24 +100,7 @@ a {
   display: table;
   margin: auto;
 }
-.login__input__id {
-  width: 365px;
-  height: 45px;
-  font-size: 18px;
-  padding: 6px 0px 6px 6px;
-  display: block;
-}
-.login__input__pw {
-  width: 365px;
-  height: 45px;
-  font-size: 18px;
-  padding: 6px 0px 6px 6px;
-  display: block;
-}
-.login__wrap_find_id_join {
-  display: flex;
-  justify-content: space-between;
-}
+
 .cursor-pointer {
   cursor: pointer;
 }
