@@ -30,41 +30,11 @@ function PaginatedMainPage() {
         <button
           className="pagination_btn"
           onClick={() => {
-            navigate("/");
+            navigate(`/${page}`);
           }}
         >
-          1
+          {page}
         </button>
-        <Link to="/2">
-          <button className="pagination_btn">2</button>
-        </Link>
-        <Link to="/3">
-          <button className="pagination_btn">3</button>
-        </Link>
-        <Link to="/4">
-          <button className="pagination_btn">4</button>
-        </Link>
-        <Link to="/5">
-          <button className="pagination_btn">5</button>
-        </Link>
-        <Link to="/6">
-          <button className="pagination_btn">6</button>
-        </Link>
-        <Link to="/7">
-          <button className="pagination_btn">7</button>
-        </Link>
-        <Link to="/8">
-          <button className="pagination_btn">8</button>
-        </Link>
-        <Link to="/9">
-          <button className="pagination_btn">9</button>
-        </Link>
-        <Link to="/10">
-          <button className="pagination_btn">10</button>
-        </Link>
-        <Link to="/11">
-          <button className="pagination_btn">&gt;</button>
-        </Link>
       </div>
       <br />
     </div>
